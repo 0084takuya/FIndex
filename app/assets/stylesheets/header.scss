@@ -1,0 +1,124 @@
+@import "color";
+@import "font";
+
+// Header
+.header-top {
+  background-color: $light-green;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .header-top-buttons {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    margin-right: 20px;
+  }
+
+  .white-button {
+    background-color: $white-green;
+    color: $light-green;
+
+    &:hover {
+      background-color: $white-green;
+    }
+
+    &:visited {
+      color: $light-green;
+    }
+  }
+
+  .green-button {
+    border: solid 3px $white-green;
+    background-color: $light-green;
+    color: $white-green;
+
+    &:hover {
+      background-color: $light-green;
+    }
+
+    &:visited {
+      color: $white-green;
+    }
+  }
+
+  a {
+    width: 120px;
+    height: 35px;
+    margin: 10px;
+    display: block;
+    color: $black;
+    font-size: $font-middle;
+    text-decoration: none;
+    text-align: center;
+    line-height: 35px;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: $black;
+    }
+  }
+}
+
+.header-bottom {
+  background-color: $green;
+  height: 50px;
+  padding: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  nav {
+    display: flex;
+    margin-left: 20px;
+  }
+
+  .header {
+    display: flex;
+  }
+}
+
+.border-right {
+  border-right: solid 1px $light-white;
+  margin-right: 20px;
+}
+
+.border-left {
+  border-left: solid 1px $light-white;
+}
+
+.header-item {
+  width: 160px;
+  height: 40px;
+  margin: 5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin: 5px;
+  }
+
+  a {
+    margin: 5px;
+    color: $white;
+    font-size: $font-middle;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      background-color: $green;
+    }
+
+    &:visited {
+      color: $white;
+    }
+  }
+}

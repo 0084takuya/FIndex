@@ -1,0 +1,21 @@
+@import "color";
+@import "font";
+
+.form-title {
+  font-size: $font-title;
+  font-weight: bold;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: solid 1px $light-gray;
+}
+
+.form-label {
+}
+
+.form-field {
+}
+
+.form-button {
+}
