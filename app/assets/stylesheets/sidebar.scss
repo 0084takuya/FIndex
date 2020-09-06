@@ -1,0 +1,72 @@
+@import "color";
+@import "font";
+
+$table-border: solid 1px $light-gray;
+
+#sidebar {
+  width: 350px;
+  margin-left: 30px;
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    height: 50px;
+    background-color: $white;
+    border-bottom: $table-border;
+    border-left: $table-border;
+    border-right: $table-border;
+  }
+
+  td {
+    height: 50px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  td:nth-child(1) {
+    width: 60px;
+  }
+
+  td:nth-child(2) {
+    width: 210px;
+  }
+
+  td:nth-child(3) {
+    width: 60px;
+  }
+
+  .buy-user {
+    font-weight: 200;
+    font-size: $font-small;
+  }
+
+  .buy-info {
+    font-size: $font-middle;
+  }
+
+  .buy-cost {
+    font-weight: bold;
+    text-align: right;
+    padding-right: 10px;
+    font-size: $font-middle;
+  }
+}
+
+.table-header {
+  background-color: $green;
+  text-align: left;
+  height: 40px;
+  font-size: $font-middle;
+  font-weight: bold;
+  padding: 0 10px;
+  color: $white;
+  line-height: 40px;
+}

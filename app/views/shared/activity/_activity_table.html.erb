@@ -1,0 +1,8 @@
+<table class="activity-table">
+    <div class="table-header">
+        <p>最近の動向</p>
+    </div>
+    <% (1..5).each do |n| %>
+        <%= render "shared/activity/activity_cell" %>
+    <% end %>
+</table>
