@@ -1,0 +1,115 @@
+// Place all the styles related to the players controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "color";
+@import "font";
+
+$table-border: solid 1px $light-gray;
+
+.player-table {
+  width: 900px;
+  text-align: left;
+  background-color: $white;
+  border-collapse: collapse;
+
+  tr {
+    font-size: $font-middle;
+    width: 900px;
+    height: 60px;
+    border-bottom: $table-border;
+    border-left: $table-border;
+    border-right: $table-border;
+  }
+
+  td,
+  th {
+    height: 60px;
+  }
+
+  tr:nth-child(1) {
+    border-top: $table-border;
+    border-bottom: solid 3px $green;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 80px;
+  }
+
+  td:nth-child(1) {
+    img {
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 25%;
+  }
+
+  td:nth-child(2) {
+    font-size: $font-big;
+    font-weight: bold;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 15%;
+  }
+
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 8%;
+  }
+
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 10%;
+  }
+
+  th:nth-child(6),
+  td:nth-child(6) {
+    width: 8%;
+  }
+
+  th:nth-child(7) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  td:nth-child(7) {
+    // 後でレスポンシブにする
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.sort-button {
+  width: 120px;
+  height: 40px;
+  border: solid 1px $light-gray;
+  color: $black;
+  font-size: $font-middle;
+  text-decoration: none;
+  display: flex;
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+
+  img {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+}
+
+.sort-nav {
+  display: none;
+}

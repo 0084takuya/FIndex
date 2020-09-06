@@ -13,12 +13,14 @@
     <header>
       <%= render "shared/header" %>
     </header>
-    <main>
-      <%= yield %>
-    </main>
-    <aside id="sidebar">
-      <%= render "shared/sidebar" %>
-    </aside>
+    <div id="container">
+      <main>
+        <%= yield %>
+      </main>
+      <aside id="sidebar">
+        <%= render "shared/sidebar" %>
+      </aside>
+    </div>
     <footer>
       <%= render "shared/footer" %>
     </footer>

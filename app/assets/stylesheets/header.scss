@@ -19,28 +19,12 @@
   .white-button {
     background-color: $white-green;
     color: $light-green;
-
-    &:hover {
-      background-color: $white-green;
-    }
-
-    &:visited {
-      color: $light-green;
-    }
   }
 
   .green-button {
     border: solid 3px $white-green;
     background-color: $light-green;
     color: $white-green;
-
-    &:hover {
-      background-color: $light-green;
-    }
-
-    &:visited {
-      color: $white-green;
-    }
   }
 
   a {
@@ -53,14 +37,6 @@
     text-decoration: none;
     text-align: center;
     line-height: 35px;
-
-    &:hover {
-      text-decoration: none;
-    }
-
-    &:visited {
-      color: $black;
-    }
   }
 }
 
@@ -111,11 +87,6 @@
     color: $white;
     font-size: $font-middle;
     text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-      background-color: $green;
-    }
 
     &:visited {
       color: $white;

@@ -5,14 +5,50 @@
   font-size: $font-small;
   color: $green;
   margin: 0 auto;
+}
 
-  &:hover {
-    text-decoration: none;
-    color: $green;
-    background-color: $light-yellow;
+.rounded-img {
+  border-radius: 50%;
+  background-position: center;
+  object-fit: cover;
+  border: 1px solid $light-gray;
+}
+
+.buy-button {
+  font-size: $font-middle;
+  text-decoration: none;
+  text-align: center;
+  background-color: $off-red;
+  display: block;
+  width: 80px;
+  height: 50px;
+  margin: 0 5px;
+}
+
+.sell-button {
+  font-size: $font-middle;
+  text-decoration: none;
+  text-align: center;
+  background-color: $off-blue;
+  width: 80px;
+  height: 50px;
+  display: block;
+  margin: 0 5px;
+}
+
+.watch-button {
+  background-color: #ffffff;
+  border: none;
+  margin: 0 5px;
+
+  img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto;
   }
 
-  &:visited {
-    color: $green;
+  &:focus {
+    outline: 0;
   }
 }
