@@ -1,0 +1,75 @@
+// Place all the styles related to the dividend controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "color";
+@import "font";
+
+.dividend-items {
+  display: flex;
+  width: 900px;
+  justify-content: space-between;
+}
+
+.dividend-item {
+  width: 200px;
+
+  .dividend-item-header {
+    background-color: $green;
+    height: 135px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    img {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+    }
+
+    p {
+      color: $white;
+      font-size: $font-middle;
+      text-align: center;
+    }
+  }
+
+  .dividend-item-cell {
+    background-color: $white;
+    height: 265px;
+
+    table {
+      width: 100%;
+
+      tr {
+        padding: 5px 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      th {
+        color: $green;
+        font-size: $font-small;
+        font-weight: 100;
+      }
+
+      td {
+        color: $green;
+        font-size: $font-middle;
+        font-weight: bold;
+      }
+
+      th:nth-child(1),
+      td:nth-child(1) {
+        padding-left: 10px;
+      }
+
+      th:nth-child(2),
+      td:nth-child(2) {
+        padding-right: 10px;
+      }
+    }
+  }
+}
