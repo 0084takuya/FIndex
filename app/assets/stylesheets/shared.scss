@@ -58,3 +58,16 @@
   height: 250px;
   margin-bottom: 30px;
 }
+
+.table-header {
+  background-color: $green;
+  text-align: left;
+  height: 40px;
+  padding: 0 15px;
+  line-height: 40px;
+
+  p {
+    font-size: $font-middle;
+    color: $white;
+  }
+}
