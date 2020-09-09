@@ -213,3 +213,14 @@ $table-border: solid 1px $light-gray;
   grid-row: 2 / 3;
   grid-column: 2 / 3;
 }
+
+#chart_container {
+  position: relative;
+  margin: 50px 0;
+  height: 400px;
+}
+
+#player_chart {
+  background-color: #353535;
+  height: 400px;
+}

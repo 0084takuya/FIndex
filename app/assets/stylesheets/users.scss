@@ -75,3 +75,100 @@ $table-border: solid 1px $light-gray;
   grid-row: 3 / 4;
   grid-column: 2 / 3;
 }
+
+// TODO: レスポンシブにする
+.user-player-table {
+  width: 900px;
+  text-align: left;
+  background-color: $white;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+
+  tr {
+    font-size: $font-middle;
+    width: 900px;
+    height: 60px;
+    border-bottom: $table-border;
+    border-left: $table-border;
+    border-right: $table-border;
+  }
+
+  td,
+  th {
+    height: 60px;
+  }
+
+  td:nth-child(n + 3),
+  th:nth-child(n + 3) {
+    p {
+      text-align: right;
+      padding-right: 10px;
+    }
+  }
+
+  tr:nth-child(1) {
+    border-top: $table-border;
+    border-bottom: solid 3px $green;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 80px;
+  }
+
+  td:nth-child(1) {
+    img {
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 25%;
+  }
+
+  td:nth-child(2) {
+    font-size: $font-big;
+    font-weight: bold;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 10%;
+  }
+
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 10%;
+  }
+
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 10%;
+  }
+
+  th:nth-child(6),
+  td:nth-child(6) {
+    width: 10%;
+  }
+
+  th:nth-child(7),
+  td:nth-child(7) {
+    width: 10%;
+  }
+
+  th:nth-child(8) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  td:nth-child(8) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

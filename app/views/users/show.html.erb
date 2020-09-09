@@ -20,4 +20,12 @@
         <p>example@example.com</p>
     </div>
 </div>
-
+<table class="user-player-table">
+    <div class="table-header">
+        <p>保有している株式</p>
+    </div>
+    <%= render "users/shared/player_header" %>
+    <% (1..5).each do |n| %>
+    <%= render "users/shared/player_cell" %>
+    <% end %>
+</table>
