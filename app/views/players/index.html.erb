@@ -4,3 +4,21 @@
     <%= render "players/shared/cell" %>
   <% end %>
 </table>
+
+<%= render "shared/modal" %>
+<!-- 
+TODO: Rails5にバージョンダウン or Rails6用にjsを読み込む 
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(function () {
+    $(".modal-open").on("click", function () {
+      $(".modal").fadeIn();
+      return false;
+    });
+    $(".modal-close").on("click", function () {
+      $(".modal").fadeOut();
+      return false;
+    });
+  });
+</script>
