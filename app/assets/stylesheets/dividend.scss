@@ -7,8 +7,9 @@
 
 .dividend-items {
   display: flex;
+  flex-wrap: wrap;
   width: 900px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .dividend-item {
@@ -71,5 +72,17 @@
         padding-right: 10px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .dividend-items {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .dividend-item {
+    width: 45%;
+    margin-bottom: 30px;
   }
 }

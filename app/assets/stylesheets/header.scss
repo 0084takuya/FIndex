@@ -19,12 +19,14 @@
   .white-button {
     background-color: $white-green;
     color: $light-green;
+    line-height: 35px;
   }
 
   .green-button {
-    border: solid 3px $white-green;
+    border: solid 2px $white-green;
     background-color: $light-green;
     color: $white-green;
+    line-height: 31px;
   }
 
   a {
@@ -36,7 +38,6 @@
     font-size: $font-middle;
     text-decoration: none;
     text-align: center;
-    line-height: 35px;
   }
 }
 
@@ -90,6 +91,146 @@
 
     &:visited {
       color: $white;
+    }
+  }
+}
+
+.header-global {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .header-pc {
+    display: none;
+  }
+
+  // Global menu
+  // https://nodoame.net/archives/8771
+  .header-global {
+    display: block;
+  }
+
+  nav.globalMenuSp {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    text-align: center;
+    transform: translateY(-100%);
+    transition: all 0.6s;
+    width: 100%;
+  }
+
+  nav.globalMenuSp ul {
+    background-color: $light-green;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    width: 100%;
+  }
+
+  nav.globalMenuSp ul li {
+    list-style-type: none;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: solid 1px $white;
+  }
+
+  nav.globalMenuSp ul li a {
+    padding: 15px 0;
+    text-decoration: none;
+    display: block;
+    color: $white;
+  }
+
+  /* このクラスを、jQueryで付与・削除する */
+  nav.globalMenuSp.active {
+    transform: translateY(0%);
+  }
+
+  .navToggle {
+    display: block;
+    position: relative;
+    top: 14px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .navToggle span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    border-bottom: solid 3px #eee;
+    -webkit-transition: 0.35s ease-in-out;
+    -moz-transition: 0.35s ease-in-out;
+    transition: 0.35s ease-in-out;
+    left: 6px;
+  }
+
+  .navToggle span:nth-child(1) {
+    top: 10px;
+  }
+
+  .navToggle span:nth-child(2) {
+    top: 20px;
+  }
+
+  .navToggle span:nth-child(3) {
+    top: 30px;
+  }
+
+  .navToggle span:nth-child(4) {
+    border: none;
+    color: #eee;
+    font-size: 9px;
+    font-weight: bold;
+    top: 34px;
+  }
+
+  /* 最初のspanをマイナス45度に */
+  .navToggle.active span:nth-child(1) {
+    top: 18px;
+    left: 6px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  /* 2番目と3番目のspanを45度に */
+  .navToggle.active span:nth-child(2),
+  .navToggle.active span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .header-bar {
+    background-color: $green;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    padding: 0 10px;
+    flex-direction: row-reverse;
+    z-index: 10;
+    position: fixed;
+  }
+
+  .globalMenuSp {
+    li {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+
+      a {
+        margin-left: 15px;
+        font-size: $font-middle;
+      }
     }
   }
 }

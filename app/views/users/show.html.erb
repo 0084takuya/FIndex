@@ -29,3 +29,17 @@
     <%= render "users/shared/player_cell" %>
     <% end %>
 </table>
+
+<table class="user-purchase-table">
+    <div class="table-header">
+        <p>購入した株式</p>
+    </div>
+    <%= render "users/shared/purchase_header" %>
+    <% (1..5).each do |n| %>
+    <%= render "users/shared/purchase_cell" %>
+    <% end %>
+</table>
+
+<div class="link-container">
+    <%= link_to "もっと見る", "#", class: "green-link" %>
+</div>

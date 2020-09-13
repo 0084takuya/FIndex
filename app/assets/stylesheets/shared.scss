@@ -4,7 +4,12 @@
 .green-link {
   font-size: $font-small;
   color: $green;
-  margin: 0 auto;
+}
+
+.link-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .rounded-img {
@@ -69,5 +74,11 @@
   p {
     font-size: $font-middle;
     color: $white;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sort-button {
+    width: 80px;
   }
 }

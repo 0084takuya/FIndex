@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    render :layout => 'single'
     @user = User.new
   end
 

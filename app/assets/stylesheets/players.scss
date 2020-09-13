@@ -7,16 +7,16 @@
 
 $table-border: solid 1px $light-gray;
 
-// TODO: レスポンシブにする
+// Player Table
 .player-table {
-  width: 900px;
+  width: 100%;
   text-align: left;
   background-color: $white;
   border-collapse: collapse;
 
   tr {
     font-size: $font-middle;
-    width: 900px;
+    width: 100%;
     height: 60px;
     border-bottom: $table-border;
     border-left: $table-border;
@@ -39,6 +39,7 @@ $table-border: solid 1px $light-gray;
   }
 
   td:nth-child(1) {
+    padding: 0 5px;
     img {
       width: 50px;
       height: 50px;
@@ -85,13 +86,13 @@ $table-border: solid 1px $light-gray;
 
   td:nth-child(7) {
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
-    justify-content: center;
   }
 }
 
 .sort-button {
-  width: 120px;
+  width: 100px;
   height: 40px;
   border: solid 1px $light-gray;
   color: $black;
@@ -114,8 +115,9 @@ $table-border: solid 1px $light-gray;
   display: none;
 }
 
+// Player Info
 .player-info {
-  width: 860px;
+  width: 100%;
   border: $table-border;
   padding: 20px;
   display: grid;
@@ -126,12 +128,14 @@ $table-border: solid 1px $light-gray;
 .player-img {
   grid-row: 1 / 3;
   grid-column: 1 / 2;
+  padding-right: 10px;
 
   img {
     display: block;
     width: 110px;
     height: 110px;
     padding: 5px;
+    margin: 0 auto;
     border: solid 1px $table-border;
   }
 }
@@ -144,7 +148,7 @@ $table-border: solid 1px $light-gray;
   justify-content: space-between;
   align-items: center;
   border-bottom: $table-border;
-  width: 720px;
+  width: 1fr;
 
   h2 {
     font-size: $font-title;
@@ -157,6 +161,10 @@ $table-border: solid 1px $light-gray;
 
   div {
     display: flex;
+
+    &:nth-child(2) {
+      flex-direction: row-reverse;
+    }
   }
 }
 
@@ -165,13 +173,13 @@ $table-border: solid 1px $light-gray;
   grid-column: 2 / 3;
   display: grid;
   grid-template-rows: 70px 70px;
-  grid-template-columns: 210px 210px 210px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .player-cell {
   border: $table-border;
   display: flex;
-  width: 160px;
+  width: 90%;
   height: 40px;
   align-items: center;
   padding: 0 10px;
@@ -220,7 +228,129 @@ $table-border: solid 1px $light-gray;
   height: 400px;
 }
 
+#chart_container {
+  max-width: 100%;
+}
+
 #player_chart {
   background-color: #353535;
   height: 400px;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .player-table {
+    th:nth-child(1),
+    td:nth-child(1) {
+      width: 60px;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+      display: none;
+    }
+
+    th:nth-child(4),
+    td:nth-child(4) {
+      display: none;
+    }
+
+    th:nth-child(5),
+    td:nth-child(5) {
+      display: none;
+    }
+
+    th:nth-child(6),
+    td:nth-child(6) {
+    }
+
+    th:nth-child(7),
+    td:nth-child(7) {
+      button {
+        display: none;
+      }
+    }
+  }
+
+  .player-info {
+    grid-template-rows: 110px 200px;
+    grid-template-columns: 110px 1fr;
+  }
+
+  .player-img {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+
+  .player-header {
+    height: 110px;
+    grid-row: 1 / 3;
+    grid-column: 2 / 2;
+    display: grid;
+    grid-template-rows: 40px 70px;
+    grid-template-columns: 1fr;
+    border-bottom: none;
+
+    div {
+      &:first-child {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        padding-left: 10px;
+      }
+
+      &:last-child {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+      }
+    }
+  }
+
+  .player-detail {
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-rows: 70px 70px 70px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .player-cell {
+    margin: auto;
+  }
+
+  #player_cell_1 {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+
+  #player_cell_2 {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+
+  #player_cell_3 {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+
+  #player_cell_4 {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+
+  #player_cell_5 {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
 }

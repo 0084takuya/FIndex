@@ -1,29 +1,51 @@
-<div class="header-top">
-    <div>
+<div class="header-pc">
+    <div class="header-top">
+        <div>
+        </div>
+        <div class="header-top-buttons">
+            <%= link_to "ログイン", "#", class: "white-button" %>
+            <%= link_to "登録", :new_user, class: "green-button" %>
+        </div>
     </div>
-    <div class="header-top-buttons">
-        <%= link_to "ログイン", "#", class: "white-button" %>
-        <%= link_to "登録", :new_user, class: "green-button" %>
-    </div>
-</div>
-<div class="header-bottom">
-    <nav>
-        <div class="header-item border-right">
-            <%= image_tag("chart") %>
-            <%= link_to "マーケット", :players %>
-        </div>
-        <div class="header-item border-right">
-            <%= image_tag("battle") %>
-            <%= link_to "マッチベット", "#" %>
-        </div>
-        <div class="header-item border-right">
-            <%= image_tag("medal") %>
-            <%= link_to "ディビデント", :dividend_index %>
-        </div>
-    </nav>
+    <div class="header-bottom">
+        <nav>
+            <div class="header-item border-right">
+                <%= image_tag("chart") %>
+                <%= link_to "マーケット", :players %>
+            </div>
+            <div class="header-item border-right">
+                <%= image_tag("medal") %>
+                <%= link_to "ディビデント", :dividend_index %>
+            </div>
+        </nav>
 
-    <div class="header-item border-left">
-        <%= image_tag("person") %>
-        <%= link_to "マイページ", "users/1" %>
+        <div class="header-item border-left">
+            <%= image_tag("person") %>
+            <%= link_to "マイページ", "users/1" %>
+        </div>
     </div>
 </div>
+<div class="header-global">
+    <div class="header-bar">
+        <div class="navToggle">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <nav class="globalMenuSp">
+        <ul>
+            <li>
+                <%= image_tag("chart") %>
+                <%= link_to "マーケット", :players %>
+            </li>
+            <li>
+                <%= image_tag("medal") %>
+                <%= link_to "ディビデント", :dividend_index %>
+            </li>
+            <li>
+                <%= image_tag("person") %>
+                <%= link_to "マイページ", "users/1" %>
+            </li>
+        </ul>
+    </nav>
+</div>
+<%= javascript_pack_tag 'header' %>
