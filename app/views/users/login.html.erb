@@ -1,0 +1,14 @@
+<%= form_for @user,:url => {controller: "users", action: "signin"} do |form| %>
+    <h1 class="form-title">ユーザ登録</h1>
+    <div>
+        <%= form.label :email, class: "form-label" %>
+        <%= form.text_field :email, class: "form-field" %>
+    </div>
+    <div>
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-field" %>
+    </div>
+    <p class="small-green-text">パスワードを忘れた方はこちら</p>   
+    <%= form.submit "ログイン", class: "form-button" %>
+    <%= link_to "新規登録する方はこちら", :new_user, class: "green-link" %>
+<% end %>

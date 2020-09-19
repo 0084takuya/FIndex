@@ -3,7 +3,7 @@
         <div>
         </div>
         <div class="header-top-buttons">
-            <%= link_to "ログイン", "#", class: "white-button" %>
+            <%= link_to "ログイン", :login_users, class: "white-button" %>
             <%= link_to "登録", :new_user, class: "green-button" %>
         </div>
     </div>
@@ -18,10 +18,9 @@
                 <%= link_to "ディビデント", :dividend_index %>
             </div>
         </nav>
-
         <div class="header-item border-left">
             <%= image_tag("person") %>
-            <%= link_to "マイページ", "users/1" %>
+            <%= link_to "マイページ", user_path(1) %>
         </div>
     </div>
 </div>

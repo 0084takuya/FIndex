@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_124810) do
+ActiveRecord::Schema.define(version: 2020_09_19_171536) do
 
   create_table "players", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_09_16_124810) do
     t.string "user_name", null: false
     t.date "birthday", null: false
     t.boolean "notification", null: false
+    t.string "invitation_code", null: false
   end
 
 end

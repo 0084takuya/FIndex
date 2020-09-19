@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   get 'dividend/index'
   resources :players
-  resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'players#index'
+  resources :users do
+    collection do
+      get 'login'
+      post 'signin'
+    end
+  end 
 end

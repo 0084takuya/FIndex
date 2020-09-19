@@ -1,23 +1,48 @@
-<form>
+<%= form_for @user do |form| %>
     <h1 class="form-title">ユーザ登録</h1>
     <div>
-        <label class="form-label">メールアドレス</label>
-        <input class="form-field" type="text">
+        <%= form.label :email, class: "form-label" %>
+        <%= form.text_field :email, class: "form-field" %>
     </div>
     <div>
-        <label class="form-label">パスワード</label>
-        <input class="form-field" type="password">
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-field" %>
     </div>
     <div>
-        <label class="form-label">パスワードの確認</label>
-        <input class="form-field" type="password">
+        <%= form.label :password_confirmation, class: "form-label" %>
+        <%= form.password_field :password_confirmation, class: "form-field" %>
     </div>
     <div>
-        <label class="form-label">電話番号</label>
-        <input class="form-field" type="text">
+        <%= form.label :user_name, class: "form-label" %>
+        <%= form.text_field :user_name, class: "form-field" %>
     </div>
-
-    <button class="form-button">続ける</button>
-
-    <%= link_to "既に登録されている方はこちら", "#", class: "green-link" %>
-</form>
+    <div>
+        <%= form.label :phone, class: "form-label" %>
+        <%= form.text_field :phone, class: "form-field" %>
+    </div>
+    <div>
+        <%= form.label :birthday, class: "form-label" %>
+        <div class="birthday-row">
+           <%= form.number_field :birthday_year, class: "birthday-field" %>
+           <p>年</p>
+           <%= form.number_field :birthday_month, class: "birthday-field" %>
+           <p>月</p>
+           <%= form.number_field :birthday_day, class: "birthday-field" %>
+           <p>日</p>
+        </div>
+    </div>
+    <div>
+        <%= form.label :invitation_code, class: "form-label" %>
+        <%= form.text_field :invitation_code, class: "form-field" %>
+    </div>
+    <div class="checkbox-row">
+        <%= form.check_box :notification %>
+        <p>Eメール通知を受け取る</p>
+    </div>
+    <div class="checkbox-row">
+        <%= form.check_box :agree_term_of_service %>
+        <p>利用規約に同意する</p>
+    </div>
+    <%= form.submit "登録する", class: "form-button" %>
+    <%= link_to "既に登録されている方はこちら", :login_users, class: "green-link" %>
+<% end %>
