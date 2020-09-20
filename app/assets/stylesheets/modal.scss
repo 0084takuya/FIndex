@@ -36,6 +36,7 @@
 .modal-content-item {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   max-width: 350px;
   margin: 20px auto;
   border-bottom: solid 1px $light-gray;
@@ -94,6 +95,17 @@
   text-align: right;
   color: $light-green;
   font-size: $font-small;
+}
+
+.amount-input {
+  background-color: $white;
+  border: solid 1px $light-gray;
+  width: 120px;
+  height: 50px;
+  padding: 0 10px;
+  text-align: right;
+  line-height: 50px;
+  margin-right: -10px;
 }
 
 @media screen and (max-width: 480px) {

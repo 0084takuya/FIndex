@@ -16,14 +16,8 @@
         <p>24h</p>
     </th>
     <th>
-        <a href="" class="sort-button">
-            価値順
-            <%= image_tag "down" %> 
-        </a>
-        <ul class="sort-nav">
-            <li>aaa</li>
-            <li>bbb</li>
-            <li>ccc</li>
-        </ul> 
+        <%= form_tag(:players, method: :get, remote: true) do %>
+            <%= select_tag "sort", options_for_select([ "買値昇順", "売値昇順", "買値降順", "売値降順", "急上昇" ], "急上昇"), class: "sort-button", :onchange => "this.form.submit();" %>
+        <% end %>
     </th>
 </tr>

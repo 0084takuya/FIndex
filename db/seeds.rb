@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create(
+  email: "text@test.com",
+  password: "password",
+  phone: "090",
+  user_name: "aaa",
+  birthday: Date.new(200, 2, 2),
+  notification: true
+)
+
 Player.create(
   name: "ああ",
   team: "ii",
@@ -16,6 +25,18 @@ Player.create(
   weight: 70,
   ask_price: 350,
   buy_price: 400
+)
+
+Player.create(
+  name: "111",
+  team: "111",
+  position: "MDF",
+  country: "ENG",
+  age: 21,
+  height: 170,
+  weight: 70,
+  ask_price: 220,
+  buy_price: 420
 )
 
 # table_names = %w(players, users)

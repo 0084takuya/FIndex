@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_014650) do
+ActiveRecord::Schema.define(version: 2020_09_20_120721) do
+
+  create_table "buy_history", force: :cascade do |t|
+    t.string "user_id", null: false
+    t.string "player_id", null: false
+    t.integer "amount", null: false
+    t.integer "buy_price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "players", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -26,6 +35,16 @@ ActiveRecord::Schema.define(version: 2020_09_20_014650) do
     t.integer "buy_price", null: false
   end
 
+  create_table "sell_history", force: :cascade do |t|
+    t.string "user_id", null: false
+    t.string "player_id", null: false
+    t.integer "amount", null: false
+    t.integer "sell_price", null: false
+    t.integer "buy_price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -35,8 +54,16 @@ ActiveRecord::Schema.define(version: 2020_09_20_014650) do
     t.string "user_name", null: false
     t.date "birthday", null: false
     t.boolean "notification", null: false
-    t.string "invitation_code", null: false
-    t.boolean "admin", default: false
+    t.string "invitation_code"
+  end
+
+  create_table "watches", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_watches_on_player_id"
+    t.index ["user_id"], name: "index_watches_on_user_id"
   end
 
 end

@@ -4,4 +4,5 @@ class User < ApplicationRecord
   attribute :birthday_year, :integer
   attribute :birthday_month, :integer
   attribute :birthday_day, :integer
+  has_many :watches
 end

@@ -3,7 +3,9 @@
         <%= image_tag "muroya", class: "rounded-img" %>
     </td>
     <td>
-        <p><%= player.name %></p>
+        <%= link_to (player_path(player)) do %>  
+            <p><%= player.name %></p>
+        <% end %>
     </td>
     <td>
         <p><%= player.team %></p>
@@ -18,10 +20,23 @@
         <p>+12</p>
     </td>
     <td>
+        <% if !Watch.exists?(user_id: 1, player_id: player.id) %>
+            <%= link_to "お気に入り", player_add_path(player), method: :post %>
+        <% else %>
+            <%= link_to "お気に入り解除", player_add_path(player), method: :delete %>
+        <% end %>
         <button class="watch-button">
             <%= image_tag "scope" %>
         </button>
-        <%= link_to "購入", "#", class: "buy-button modal-open" %>
-        <%= link_to "売却", "#", class: "sell-button modal-open" %>
+        <%= link_to player_path(player), class: "buy-button modal-open" do %>
+            <span><%= player.buy_price %></span>
+            <br />
+            購入
+        <% end %>
+        <%= link_to player_path(player), class: "sell-button modal-open" do %>
+            <span><%= player.ask_price %></span>
+            <br />
+            売却
+        <% end %>
     </td>
 </tr>

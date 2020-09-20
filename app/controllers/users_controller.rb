@@ -20,9 +20,7 @@ class UsersController < ApplicationController
     if params[:user][:agree_term_of_service] == "0" then
       return
     end
-    puts params[:user]
     user = User.new(processed_params)
-    puts user
     if user.save
       puts "success"
     else 

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'dividend/index'
-  resources :players
+  resources :players do
+    post 'add' => 'watch#create'
+    delete '/add' => 'watch#destroy'
+  end
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
