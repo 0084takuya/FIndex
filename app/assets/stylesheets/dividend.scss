@@ -8,12 +8,12 @@
 .dividend-items {
   display: flex;
   flex-wrap: wrap;
-  width: 900px;
+  max-width: 900px;
   justify-content: space-around;
 }
 
 .dividend-item {
-  width: 200px;
+  max-width: 200px;
 
   .dividend-item-header {
     background-color: $green;

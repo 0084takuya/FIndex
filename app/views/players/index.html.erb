@@ -1,7 +1,7 @@
 <table class="player-table">
   <%= render "players/shared/header" %>
-  <% (1..10).each do |n| %>
-    <%= render "players/shared/cell" %>
+  <% @players.each do |player| %>
+    <%= render partial: "players/shared/cell", locals: { player: player } %>
   <% end %>
 </table>
 

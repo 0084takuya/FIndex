@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
   def index
     @users = User.all
   end
@@ -11,16 +13,7 @@ class UsersController < ApplicationController
     render :layout => 'single'
   end
 
-  def signin
-    puts params
-  end
-
   def edit
-  end
-
-  def login
-    @user = User.new
-    render :layout => 'single'
   end
 
   def create
@@ -38,6 +31,9 @@ class UsersController < ApplicationController
   end
 
   private 
+  def set_user
+  end
+
   def processed_params
     attrs = user_params.to_h
     attrs[:birthday] = format_date(attrs[:birthday_year], attrs[:birthday_month], attrs[:birthday_day])

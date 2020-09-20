@@ -3,7 +3,7 @@
         <div>
         </div>
         <div class="header-top-buttons">
-            <%= link_to "ログイン", :login_users, class: "white-button" %>
+            <%= link_to "ログイン", login_path, class: "white-button" %>
             <%= link_to "登録", :new_user, class: "green-button" %>
         </div>
     </div>
@@ -18,10 +18,12 @@
                 <%= link_to "ディビデント", :dividend_index %>
             </div>
         </nav>
-        <div class="header-item border-left">
-            <%= image_tag("person") %>
-            <%= link_to "マイページ", user_path(1) %>
-        </div>
+        <% if logged_in? %>
+            <div class="header-item border-left">
+                <%= image_tag("person") %>
+                <%= link_to "マイページ", user_path(session[:user_id]) %>
+            </div>
+        <% end %>
     </div>
 </div>
 <div class="header-global">
@@ -39,11 +41,13 @@
             <li>
                 <%= image_tag("medal") %>
                 <%= link_to "ディビデント", :dividend_index %>
-            </li>
-            <li>
-                <%= image_tag("person") %>
-                <%= link_to "マイページ", "users/1" %>
-            </li>
+            </li>        
+            <% if logged_in? %>
+                <li>
+                    <%= image_tag("person") %>
+                    <%= link_to "マイページ", user_path(session[:user_id]) %>
+                </li>
+            <% end %>
         </ul>
     </nav>
 </div>
