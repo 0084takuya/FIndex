@@ -5,36 +5,44 @@
     </div>
     <div class="player-header">
         <div>
-            <h2>室谷　成</h2>
+            <h2><%= @player.name %></h2>
             <button class="watch-button">
                 <%= image_tag "scope" %>
             </button>
         </div>
         <div>
-            <%= link_to "購入", "#", class: "buy-button" %>
-            <%= link_to "売却", "#", class: "sell-button" %>
+            <%= link_to "", class: "buy-button buy-modal-open" do %>
+                <span><%= @player.buy_price %></span>
+                <br />
+                購入
+            <% end %>
+            <%= link_to "", class: "sell-button sell-modal-open" do %>
+                <span><%= @player.ask_price %></span>
+                <br />
+                売却
+            <% end %>
         </div>
     </div>
     <div class="player-detail">
         <div class="player-cell" id="player_cell_1">
             <%= image_tag "team" %>
-            <p>FC東京</p>
+            <p><%= @player.team %></p>
         </div>
         <div class="player-cell" id="player_cell_2">
             <%= image_tag "team" %>
-            <p>FC東京</p>
+            <p><%= @player.position %></p>
         </div>
         <div class="player-cell" id="player_cell_3">
             <%= image_tag "team" %>
-            <p>FC東京</p>
+            <p><%= @player.age %></p>
         </div>
         <div class="player-cell" id="player_cell_4">
             <%= image_tag "team" %>
-            <p>FC東京</p>
+            <p><%= @player.height %></p>
         </div>
         <div class="player-cell" id="player_cell_5">
             <%= image_tag "team" %>
-            <p>FC東京</p>
+            <p><%= @player.weight %></p>
         </div>
     </div>
 </div>
@@ -46,3 +54,6 @@
 TODO: Rails5にバージョンダウン or Rails6用にjsを読み込む 
 -->
 <%= javascript_pack_tag 'chart' %>
+<%= render "shared/buy_modal" %>
+<%= render "shared/sell_modal" %>
+<%= javascript_pack_tag 'modal' %>

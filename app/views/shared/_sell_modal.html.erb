@@ -1,0 +1,32 @@
+<div class="modal sell-modal js-modal">
+    <div class="modal-bg modal-close"></div>
+    <div class="modal-content">
+        <%= form_tag '/sell', method: :post do %>
+            <a class="modal-close" href="">
+                <%= image_tag "cross" %>
+            </a>
+            <div class="modal-content-item">
+                <%= image_tag "muroya", class: "rounded-img" %>
+                <h3>
+                    <%= @player.name %>
+                </h3>
+            </div>
+            <div class="modal-content-item">
+                <p>現在の売値</p>
+                <p><%= @player.ask_price %></p>
+            </div>
+            <div class="modal-content-item">
+                <p>売却株数</p>
+                <%= number_field_tag "amount", "", class: "amount-input", id: "sell_amount_input" %>
+            </div>
+            <div class="modal-content-item">
+                <p>売却総額</p>
+                <p id="sell_total_amount">0</p>
+            </div>
+            <p class="small-green-text">保有ポイント: <%= 100 %></p>
+            <%= hidden_field_tag "buy_price", @player.buy_price %>
+            <%= hidden_field_tag "player_id", @player.id %>
+            <%= submit_tag "売却する", class: "large-button" %>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="modal buy-modal js-modal">
+    <div class="modal-bg modal-close"></div>
+    <div class="modal-content">
+        <%= form_tag '/buy', method: :post do %>
+            <a class="modal-close" href="">
+                <%= image_tag "cross" %>
+            </a>
+            <div class="modal-content-item">
+                <%= image_tag "muroya", class: "rounded-img" %>
+                <h3><%= @player.name %></h3>
+            </div>
+            <div class="modal-content-item">
+                <p>現在の買値</p>
+                <p><%= @player.buy_price %></p>
+            </div>
+            <div class="modal-content-item">
+                <p>購入株数</p>
+                <%= number_field_tag "amount", "", class: "amount-input", id: "buy_amount_input" %>
+            </div>
+            <div class="modal-content-item">
+                <p>支払い総額</p>
+                <p id="buy_total_amount">0</p>
+            </div>
+            <p class="small-green-text">保有ポイント: 1000000</p>
+            <%= hidden_field_tag "player_id", @player.id %>
+            <%= submit_tag "購入する", class: "large-button" %>
+        <% end %>
+    </div>
+</div>

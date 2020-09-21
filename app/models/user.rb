@@ -5,4 +5,6 @@ class User < ApplicationRecord
   attribute :birthday_month, :integer
   attribute :birthday_day, :integer
   has_many :watches
+  has_many :buy_histories
+  has_many :sell_histories
 end

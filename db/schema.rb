@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_120721) do
+ActiveRecord::Schema.define(version: 2020_09_20_141008) do
 
-  create_table "buy_history", force: :cascade do |t|
+  create_table "buy_histories", force: :cascade do |t|
     t.string "user_id", null: false
     t.string "player_id", null: false
     t.integer "amount", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_09_20_120721) do
     t.integer "buy_price", null: false
   end
 
-  create_table "sell_history", force: :cascade do |t|
+  create_table "sell_histories", force: :cascade do |t|
     t.string "user_id", null: false
     t.string "player_id", null: false
     t.integer "amount", null: false

@@ -78,14 +78,12 @@
   background-color: $off-blue;
   text-decoration: none;
   margin: 60px auto 0;
-
-  p {
-    font-weight: bold;
-    line-height: 40px;
-    text-align: center;
-    font-size: $font-middle;
-    color: $black;
-  }
+  font-weight: bold;
+  line-height: 40px;
+  text-align: center;
+  font-size: $font-middle;
+  color: $black;
+  border: none;
 }
 
 .small-green-text {
@@ -106,6 +104,8 @@
   text-align: right;
   line-height: 50px;
   margin-right: -10px;
+  font-size: $font-title;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 480px) {
