@@ -1,7 +1,7 @@
 class TransactionController < ApplicationController
     def buy
         puts "buy"
-        player = Player.find_by(params[:player_id])
+        player = Player.find(params[:player_id])
         buy_history = BuyHistory.new(
             user_id: current_user.id,
             player_id: player.id,

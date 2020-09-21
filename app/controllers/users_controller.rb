@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  include PlayersHelper
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  
   def index
     @users = User.all
   end
@@ -8,6 +9,17 @@ class UsersController < ApplicationController
   def show
     @sell_histories = SellHistory.where(user_id: @user.id)
     @user_stock = BuyHistory.where(user_id: @user.id)
+    
+    @sort = params[:sort]
+    puts @sort
+    case params[:sort]
+    when "買値昇順" then
+      @user_stock = @user_stock.order(buy_price: :asc)
+    when "買値降順" then
+      @user_stock = @user_stock.order(buy_price: :desc)
+    else
+      @sort = "全て"
+    end
   end
 
   def new

@@ -56,6 +56,25 @@ $table-border: solid 1px $light-gray;
   }
 }
 
+.large-sell-button {
+  background-color: $off-red;
+  width: 80px;
+  height: 50px;
+  margin: 0 5px;
+  text-decoration: none;
+  font-weight: bold;
+
+  span {
+    display: block;
+    text-align: center;
+    width: 80px;
+    height: 50px;
+    line-height: 50px;
+    color: $black;
+    font-size: $font-big;
+  }
+}
+
 #user_cell_1 {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
@@ -75,7 +94,6 @@ $table-border: solid 1px $light-gray;
   grid-row: 3 / 4;
   grid-column: 2 / 3;
 }
-
 
 @media screen and (max-width: 480px) {
   .user-info {

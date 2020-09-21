@@ -24,9 +24,13 @@
     <div class="table-header">
         <p>保有している株式</p>
     </div>
-    <%= render "users/shared/player_header" %>
-    <% @user_stock.each do |stock| %>
-        <%= render partial: "users/shared/player_cell", locals: { stock: stock } %>
+    <% if @user_stock.count > 0 %>
+        <%= render "users/shared/player_header" %>
+        <% @user_stock.each do |stock| %>
+            <%= render partial: "users/shared/player_cell", locals: { stock: stock } %>
+        <% end %>
+    <% else %>
+        <%= render "shared/no_data" %>
     <% end %>
 </table>
 
@@ -34,9 +38,13 @@
     <div class="table-header">
         <p>売却履歴</p>
     </div>
-    <%= render "users/shared/purchase_header" %>
-    <% @sell_histories.each do |sell| %>
-        <%= render partial: "users/shared/purchase_cell", locals: { sell: sell } %>
+    <% if @sell_histories.count > 0 %>
+        <%= render "users/shared/purchase_header" %>
+        <% @sell_histories.each do |sell| %>
+            <%= render partial: "users/shared/purchase_cell", locals: { sell: sell } %>
+        <% end %>
+    <% else %>
+        <%= render "shared/no_data" %>
     <% end %>
 </table>
 

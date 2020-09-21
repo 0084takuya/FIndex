@@ -3,7 +3,7 @@
         <%= image_tag "muroya", class: "rounded-img" %>
     </td>
     <td>
-        <p><%= stock.player_id %></p>
+        <p><%= player_id_to_name(stock.player_id) %></p>
     </td>
     <td>
         <p><%= stock.player_id %></p>
@@ -21,6 +21,8 @@
         <p>+12</p>
     </td>
     <td>
-        <%= link_to "売却", "#", class: "sell-button" %>
+        <%= link_to "", class: "large-sell-button" do %>
+            <span>売却</span>
+        <% end %>
     </td>
 </tr>

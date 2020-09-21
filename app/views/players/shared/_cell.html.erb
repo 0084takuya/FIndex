@@ -19,11 +19,17 @@
     </td>
     <td>
         <% if !Watch.exists?(user_id: 1, player_id: player.id) %>
-            <%= link_to player_add_path(player), method: :post, class: "watch-button" do %>
+            <%= link_to player_add_path(player), method: :post, class: "watch-button scope-on" do %>
+                <%= image_tag "phone" %>
+            <% end %>
+            <%= link_to player_add_path(player), method: :delete, class: "watch-button scope-off" do %>
                 <%= image_tag "scope" %>
             <% end %>
         <% else %>
-            <%= link_to player_add_path(player), method: :delete, class: "watch-button" do %>
+            <%= link_to player_add_path(player), method: :delete, class: "watch-button scope-off" do %>
+                <%= image_tag "phone" %>
+            <% end %>
+            <%= link_to player_add_path(player), method: :delete, class: "watch-button scope-on" do %>
                 <%= image_tag "scope" %>
             <% end %>
         <% end %>
