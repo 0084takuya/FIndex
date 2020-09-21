@@ -59,3 +59,6 @@ gem "rails_admin_import", "~> 2.2"
 
 # Gon
 gem 'gon'
+
+# Kaminari
+gem 'kaminari'

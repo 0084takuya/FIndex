@@ -1,0 +1,37 @@
+@import "color";
+@import "font";
+
+.pagination {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+
+  span {
+    display: block;
+    background-color: $white;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: solid 1px $light-gray;
+
+    a {
+      display: block;
+      width: 30px;
+      height: 30px;
+      color: $light-green;
+      text-decoration: none;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 5px;
+    }
+  }
+
+  .current {
+    background-color: $light-green;
+    color: $white;
+  }
+}

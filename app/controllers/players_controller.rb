@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
     when "売値降順" then
       @players = Player.sell_desc
     else 
-      @players = Player.all
+      @players = Player.page(params[:page])
       @sort = "全て"
     end
   end
