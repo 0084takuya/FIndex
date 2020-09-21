@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      puts "login"
       log_in user
+      flash[:notice] = "ログインしました！"
       redirect_to root_url
     else
-      puts "fail"
-      render 'new'
+      flash.now[:notice] = "ログインに失敗しました。"
+      render 'new', :layout => 'single'
     end
   end
 

@@ -14,6 +14,9 @@
       <%= render "shared/header" %>
     </header>
     <div id="container">
+      <% if flash[:notice] %>
+        <p id="notice"><%= flash[:notice] %></p>
+      <% end %> 
       <main>
         <div>
           <%= yield %>
@@ -23,5 +26,6 @@
     <footer>
       <%= render "shared/footer" %>
     </footer>
+    <%= javascript_pack_tag 'notice' %>
   </body>
 </html>

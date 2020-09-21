@@ -1,10 +1,10 @@
 <%= form_for :session, url: login_path, html: { class: "user-form" } do |form| %>
     <h1 class="form-title">ログイン</h1>
-    <div>
+    <div class="form-row">
         <%= form.label :email, class: "form-label" %>
         <%= form.text_field :email, class: "form-field" %>
     </div>
-    <div>
+    <div class="form-row">
         <%= form.label :password, class: "form-label" %>
         <%= form.password_field :password, class: "form-field" %>
     </div>

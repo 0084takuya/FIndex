@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
@@ -54,7 +54,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # RailsAdmin
-gem 'rails_admin', '~> 2.0.0.beta'
+gem 'rails_admin', '~> 2.0.0'
+gem "rails_admin_import", "~> 2.2"
 
 # Gon
 gem 'gon'
