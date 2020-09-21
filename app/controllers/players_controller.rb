@@ -4,13 +4,13 @@ class PlayersController < ApplicationController
     @sort = params[:sort]
     case params[:sort]
     when "買値昇順" then
-      @players = Player.buy_asc
+      @players = Player.page(params[:page]).buy_asc
     when "買値降順" then
-      @players = Player.buy_desc
+      @players = Player.page(params[:page]).buy_desc
     when "売値昇順" then
-      @players = Player.sell_asc
+      @players = Player.page(params[:page]).sell_asc
     when "売値降順" then
-      @players = Player.sell_desc
+      @players = Player.page(params[:page]).sell_desc
     else 
       @players = Player.page(params[:page])
       @sort = "全て"

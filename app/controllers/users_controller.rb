@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find_by(params[:id])
+    @sell_histories = SellHistory.where(user_id: @user.id)
+    @user_stock = BuyHistory.where(user_id: @user.id)
   end
 
   def new
@@ -30,6 +32,7 @@ class UsersController < ApplicationController
 
   private 
   def set_user
+    @user = User.find_by(params[:id])
   end
 
   def processed_params

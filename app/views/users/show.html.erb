@@ -25,8 +25,8 @@
         <p>保有している株式</p>
     </div>
     <%= render "users/shared/player_header" %>
-    <% (1..5).each do |n| %>
-    <%= render "users/shared/player_cell" %>
+    <% @user_stock.each do |stock| %>
+        <%= render partial: "users/shared/player_cell", locals: { stock: stock } %>
     <% end %>
 </table>
 
@@ -35,11 +35,13 @@
         <p>売却履歴</p>
     </div>
     <%= render "users/shared/purchase_header" %>
-    <% (1..5).each do |n| %>
-    <%= render "users/shared/purchase_cell" %>
+    <% @sell_histories.each do |sell| %>
+        <%= render partial: "users/shared/purchase_cell", locals: { sell: sell } %>
     <% end %>
 </table>
 
+<!--
 <div class="link-container">
     <%= link_to "もっと見る", "#", class: "green-link" %>
 </div>
+-->
