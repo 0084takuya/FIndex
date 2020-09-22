@@ -16,14 +16,41 @@ module PlayersHelper
     total_amount
   end
 
-  def chart_data_from_change_histories(change_histories)
+  # change_historiesは新しい順で渡す
+  def chart_data_from_change_histories(change_histories, default_price)
     datas = []
+    turn_point = []
+    price = default_price
+    
     change_histories.each do |history|
+      turn_point.push(history)
+      price = history.new_value
+
       # 30日より前であった場合
       if history.created_at < 30.day.ago.beginning_of_day
-        
+        break
       end
     end
+
+    turn_point = turn_point.reverse
+
+    (0 ... 29).reverse_each do |i|
+      while true
+        if turn_point.count == 0
+          break
+        end
+  
+        if turn_point.first.created_at.strftime("%Y/%m/%d") == i.day.ago.beginning_of_day.strftime("%Y/%m/%d")
+          price = turn_point.first.new_value
+          turn_point.shift
+        else
+          break
+        end
+      end
+
+      datas.push(price)
+    end
+
     return datas
   end
 

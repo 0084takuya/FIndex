@@ -1,4 +1,4 @@
-<tr>   
+<tr onclick='window.location="<%= '/players/' + stock.player_id.to_s %>"' role="link">   
     <% player = player_id_to_player(stock.player_id) %>
     <td>
         <%= image_tag "muroya", class: "rounded-img" %>

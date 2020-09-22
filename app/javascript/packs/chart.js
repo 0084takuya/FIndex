@@ -61,6 +61,7 @@ $(function () {
             ticks: {
               fontColor: "white",
               fontSize: 10,
+              beginAtZero: true,
             },
           },
         ],
