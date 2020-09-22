@@ -1,7 +1,7 @@
 module PlayersHelper
-  def player_id_to_name(player_id)
+  def player_id_to_player(player_id)
     player = Player.find(player_id)
-    player.name
+    player
   end
 
   def user_player_stocks(player_id)

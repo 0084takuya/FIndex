@@ -10,6 +10,19 @@ class Player < ApplicationRecord
   scope :sell_asc, -> { order(sell_price: :asc) }
   scope :sell_desc, -> { order(sell_price: :desc) }
 
+  def calc_delta
+    change_histories = ChangeHistory.where(player_id: self.id).order(created_at: :desc)
+    change_histories.each do |history|
+      # 一週間より前であった場合
+      if history.created_at < 1.day.ago.beginning_of_day
+        return self.buy_price - history.new_value 
+      end
+    end
+
+    # 過去のデータがない場合
+    return 0
+  end
+
   def raise_price
     self.buy_price = (self.buy_price * 1.02).floor
     self.sell_price = (self.buy_price * 0.92).floor

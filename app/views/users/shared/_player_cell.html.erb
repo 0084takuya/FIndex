@@ -1,9 +1,10 @@
-<tr>
+<tr>   
+    <% player = player_id_to_player(stock.player_id) %>
     <td>
         <%= image_tag "muroya", class: "rounded-img" %>
     </td>
     <td>
-        <p><%= player_id_to_name(stock.player_id) %></p>
+        <p><%= player.name %></p>
     </td>
     <td>
         <p><%= stock.amount %></p>
@@ -12,13 +13,13 @@
         <p><%= stock.buy_price %></p>
     </td>
     <td>
-        <p>643</p>
+        <p><%= player.sell_price %></p>
     </td>
     <td>
-        <p>+700</p>
+        <p><%= (player.sell_price - stock.buy_price) * stock.amount %></p>
     </td>
     <td>
-        <p>+12</p>
+        <p><%= player.calc_delta %></p>
     </td>
     <td>
         <%= link_to "", class: "large-sell-button" do %>
