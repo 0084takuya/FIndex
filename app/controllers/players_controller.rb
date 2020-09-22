@@ -1,5 +1,4 @@
 class PlayersController < ApplicationController
-
   def index
     @sort = params[:sort]
     case params[:sort]
@@ -19,9 +18,9 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    change_histories = ChangeHistory.where(player_id: params[:id]).order(created_at: :desc)
     gon.player = @player
 
-    @change_histories = @player.change_histories
-    gon.change_histories = @change_histories
+    gon.chart_data = chart_data_from_change_histories(change_histories)
   end 
 end

@@ -15,7 +15,6 @@ NEED:
 ログインしていないときの表示
 売却履歴、保有株式の見た目
 
-
 PLUS:
 ソート項目の列挙型
 Rails_adminのユーザ、パスワード
@@ -24,15 +23,25 @@ Dividendのアイテムの配置
 Watchの見た目切替
 24hの見た目
 Enterでフォーム送信しないように
-
+ChartのlabelをRuby側で作る
+Chartの範囲を変えられるように
+リファクタリング
+buy_history, sell_historyのuser, playerをreference化
+チーム検索
 
 9/22
+リンクを貼る
 選手のグラフにデータを入れる
 
 9/23
+
+
+9/24~
 選手画像->CarrierWave
-チーム検索
-最近の動向
+
+kill -9 $(lsof -i tcp:3000 -t)
+
+
 
 
 
@@ -60,3 +69,4 @@ currentMemberでマイページへのアクセス
 コイン機能
 株価システム
 24h
+最近の動向

@@ -3,10 +3,10 @@
         <%= image_tag "muroya", class: "rounded-img" %>
     </td>
     <td>
-        <p class="buy-user">〇〇さんが購入</p>
-        <p class="buy-info">室谷　成 x 100</p>
+        <p class="buy-user"><%= user_id_to_user(transaction.user_id).user_name %>さんが購入</p>
+        <p class="buy-info"><%= player_id_to_player(transaction.player_id).name %> x <%= transaction.amount %></p>
     </td>
     <td>
-        <p class="buy-cost">67273</p>
+        <p class="buy-cost"><%= transaction.amount * transaction.buy_price %></p>
     </td>
 </tr>

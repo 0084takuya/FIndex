@@ -1,6 +1,4 @@
 class TransactionController < ApplicationController
-    include PlayersHelper
-
     def buy
         puts "buy"
         player = Player.find(params[:player_id])

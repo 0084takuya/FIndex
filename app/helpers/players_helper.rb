@@ -15,4 +15,19 @@ module PlayersHelper
     end
     total_amount
   end
+
+  def chart_data_from_change_histories(change_histories)
+    datas = []
+    change_histories.each do |history|
+      # 30日より前であった場合
+      if history.created_at < 30.day.ago.beginning_of_day
+        
+      end
+    end
+    return datas
+  end
+
+  def recent_transaction
+    BuyHistory.all.order(created_at: :desc).limit(5)
+  end
 end

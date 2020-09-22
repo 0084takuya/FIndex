@@ -2,7 +2,7 @@
     <div class="table-header">
         <p>最近の動向</p>
     </div>
-    <% (1..5).each do |n| %>
-        <%= render "shared/activity/activity_cell" %>
+    <% recent_transaction.each do |transaction| %>
+        <%= render partial: "shared/activity/activity_cell", locals: { transaction: transaction } %>
     <% end %>
 </table>
