@@ -28,8 +28,7 @@
   top: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
-  padding: 40px;
-  height: 550px;
+  padding: 20px 20px 40px;
   width: 60%;
 }
 
@@ -59,6 +58,20 @@
     padding: 5px;
     height: 100px;
   }
+
+  .player-stock {
+    width: 200px;
+
+    p {
+      text-align: right;
+      font-size: $font-middle;
+      font-weight: bold;
+
+      span {
+        font-size: $font-large;
+      }
+    }
+  }
 }
 
 .modal-close {
@@ -75,7 +88,6 @@
   display: block;
   width: 250px;
   height: 40px;
-  background-color: $off-blue;
   text-decoration: none;
   margin: 60px auto 0;
   font-weight: bold;
@@ -84,6 +96,14 @@
   font-size: $font-middle;
   color: $black;
   border: none;
+}
+
+.red-button {
+  background-color: $off-red;
+}
+
+.blue-button {
+  background-color: $off-blue;
 }
 
 .small-green-text {

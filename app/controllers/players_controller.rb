@@ -19,7 +19,6 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    params[:id]
     gon.player = @player
   end 
 end

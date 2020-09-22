@@ -33,6 +33,11 @@ $table-border: solid 1px $light-gray;
 
   p {
     font-size: $font-small;
+
+    span {
+      font-size: $font-big;
+      font-weight: bold;
+    }
   }
 }
 

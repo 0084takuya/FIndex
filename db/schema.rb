@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_20_141008) do
+ActiveRecord::Schema.define(version: 2020_09_22_071647) do
 
   create_table "buy_histories", force: :cascade do |t|
     t.string "user_id", null: false
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2020_09_20_141008) do
     t.integer "buy_price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "change_histories", force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.integer "new_value", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_change_histories_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -31,8 +39,11 @@ ActiveRecord::Schema.define(version: 2020_09_20_141008) do
     t.integer "age", null: false
     t.integer "height", null: false
     t.integer "weight", null: false
-    t.integer "ask_price", null: false
+    t.integer "sell_price", null: false
     t.integer "buy_price", null: false
+    t.integer "remaining_stock", default: 0, null: false
+    t.integer "border_stock", default: 100, null: false
+    t.string "image_name"
   end
 
   create_table "sell_histories", force: :cascade do |t|
@@ -45,6 +56,17 @@ ActiveRecord::Schema.define(version: 2020_09_20_141008) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_stocks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "player_id", null: false
+    t.integer "amount", null: false
+    t.integer "buy_price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_user_stocks_on_player_id"
+    t.index ["user_id"], name: "index_user_stocks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -55,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_09_20_141008) do
     t.date "birthday", null: false
     t.boolean "notification", null: false
     t.string "invitation_code"
+    t.integer "point", default: 0
   end
 
   create_table "watches", force: :cascade do |t|

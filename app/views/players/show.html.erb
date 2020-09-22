@@ -6,9 +6,19 @@
     <div class="player-header">
         <div>
             <h2><%= @player.name %></h2>
-            <button class="watch-button">
-                <%= image_tag "scope" %>
-            </button>
+            <% if current_user %>
+                <% if !Watch.exists?(user_id: current_user.id, player_id: @player.id) %>
+                    <%= link_to player_add_path(@player), method: :post, class: "watch-button" do %>
+                        <%= image_tag "phone" %>
+                    <% end %>
+                <% else %>
+                    <%= link_to player_add_path(@player), method: :delete, class: "watch-button" do %>
+                        <%= image_tag "scope" %>
+                    <% end %>
+                <% end %>
+            <% else %>
+
+            <% end %>
         </div>
         <div>
             <%= link_to "", class: "buy-button buy-modal-open" do %>
@@ -17,7 +27,7 @@
                 購入
             <% end %>
             <%= link_to "", class: "sell-button sell-modal-open" do %>
-                <span><%= @player.ask_price %></span>
+                <span><%= @player.sell_price %></span>
                 <br />
                 売却
             <% end %>
@@ -50,10 +60,10 @@
     <canvas id="player_chart"></canvas>
 </div>
 
-<!-- 
-TODO: Rails5にバージョンダウン or Rails6用にjsを読み込む 
--->
-<%= render "shared/buy_modal" %>
-<%= render "shared/sell_modal" %>
-<%= javascript_pack_tag 'modal' %>
 <%= javascript_pack_tag 'chart' %>
+
+<% if logged_in? %>
+    <%= render "shared/buy_modal" %>
+    <%= render "shared/sell_modal" %>
+    <%= javascript_pack_tag 'modal' %>
+<% end %>

@@ -15,15 +15,15 @@
             </div>
             <div class="modal-content-item">
                 <p>購入株数</p>
-                <%= number_field_tag "amount", "", class: "amount-input", id: "buy_amount_input" %>
+                <%= number_field_tag "amount", "0", class: "amount-input", id: "buy_amount_input" %>
             </div>
             <div class="modal-content-item">
                 <p>支払い総額</p>
                 <p id="buy_total_amount">0</p>
             </div>
-            <p class="small-green-text">保有ポイント: 1000000</p>
+            <p class="small-green-text">保有ポイント: <%= current_user.point %></p>
             <%= hidden_field_tag "player_id", @player.id %>
-            <%= submit_tag "購入する", class: "large-button" %>
+            <%= submit_tag "購入する", class: "large-button blue-button" %>
         <% end %>
     </div>
 </div>

@@ -19,7 +19,7 @@ $(function () {
   });
   $("#sell_amount_input").on("input", function () {
     $("#sell_total_amount").text(
-      $("#sell_amount_input").val() * gon.player.ask_price
+      $("#sell_amount_input").val() * gon.player.sell_price
     );
   });
 });

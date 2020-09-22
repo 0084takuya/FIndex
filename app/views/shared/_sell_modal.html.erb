@@ -12,21 +12,27 @@
                 </h3>
             </div>
             <div class="modal-content-item">
+                <p>保有している株式</p>
+                <div class="player-stock">
+                    <% user_player_stocks(@player.id).each do |stock| %>
+                        <p><span><%= stock.buy_price %></span> x <%= stock.amount %></p>
+                    <% end %>
+                </div>
+            </div>
+            <div class="modal-content-item">
                 <p>現在の売値</p>
-                <p><%= @player.ask_price %></p>
+                <p><%= @player.sell_price %></p>
             </div>
             <div class="modal-content-item">
                 <p>売却株数</p>
-                <%= number_field_tag "amount", "", class: "amount-input", id: "sell_amount_input" %>
+                <%= number_field_tag "amount", "0", class: "amount-input", id: "sell_amount_input" %>
             </div>
             <div class="modal-content-item">
                 <p>売却総額</p>
                 <p id="sell_total_amount">0</p>
             </div>
-            <p class="small-green-text">保有ポイント: <%= 100 %></p>
-            <%= hidden_field_tag "buy_price", @player.buy_price %>
             <%= hidden_field_tag "player_id", @player.id %>
-            <%= submit_tag "売却する", class: "large-button" %>
+            <%= submit_tag "売却する", class: "large-button red-button" %>
         <% end %>
     </div>
 </div>

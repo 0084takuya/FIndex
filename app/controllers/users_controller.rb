@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @sell_histories = SellHistory.where(user_id: @user.id)
-    @user_stock = BuyHistory.where(user_id: @user.id)
+    @user_stock = UserStock.where(user_id: @user.id)
     
     @sort = params[:sort]
     puts @sort
@@ -44,7 +44,11 @@ class UsersController < ApplicationController
 
   private 
   def set_user
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
+    if current_user != @user
+      redirect_to :root
+      return
+    end
   end
 
   def processed_params

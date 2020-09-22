@@ -6,6 +6,6 @@ Player.create(
   age: 26,
   height: 170,
   weight: 70,
-  ask_price: 350,
+  sell_price: 350,
   buy_price: 400
 )

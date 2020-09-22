@@ -23,7 +23,7 @@ Player.create(
   age: 26,
   height: 170,
   weight: 70,
-  ask_price: 350,
+  sell_price: 350,
   buy_price: 400
 )
 
@@ -35,7 +35,7 @@ Player.create(
   age: 21,
   height: 170,
   weight: 70,
-  ask_price: 220,
+  sell_price: 220,
   buy_price: 420
 )
 

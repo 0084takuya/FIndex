@@ -18,20 +18,18 @@
         <p>+12</p>
     </td>
     <td>
-        <% if !Watch.exists?(user_id: 1, player_id: player.id) %>
-            <%= link_to player_add_path(player), method: :post, class: "watch-button scope-on" do %>
-                <%= image_tag "phone" %>
-            <% end %>
-            <%= link_to player_add_path(player), method: :delete, class: "watch-button scope-off" do %>
-                <%= image_tag "scope" %>
+        <% if current_user %>
+            <% if !Watch.exists?(user_id: current_user.id, player_id: player.id) %>
+                <%= link_to player_add_path(player), method: :post, class: "watch-button" do %>
+                    <%= image_tag "phone" %>
+                <% end %>
+            <% else %>
+                <%= link_to player_add_path(player), method: :delete, class: "watch-button" do %>
+                    <%= image_tag "scope" %>
+                <% end %>
             <% end %>
         <% else %>
-            <%= link_to player_add_path(player), method: :delete, class: "watch-button scope-off" do %>
-                <%= image_tag "phone" %>
-            <% end %>
-            <%= link_to player_add_path(player), method: :delete, class: "watch-button scope-on" do %>
-                <%= image_tag "scope" %>
-            <% end %>
+
         <% end %>
         <p class="buy-button">
             <span><%= player.buy_price %></span>
@@ -39,7 +37,7 @@
             購入
         </p>
         <p class="sell-button">
-            <span><%= player.ask_price %></span>
+            <span><%= player.sell_price %></span>
             <br />
             売却
         </p>

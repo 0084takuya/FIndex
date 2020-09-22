@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :watches
   has_many :buy_histories
   has_many :sell_histories
+  has_many :user_stocks
 end
