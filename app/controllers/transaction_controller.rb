@@ -33,16 +33,19 @@ class TransactionController < ApplicationController
         )
 
         # 株価システム
+        has_changed_flag = false
         while true
-            puts amount
             if amount < player.remaining_stock 
                 player.remaining_stock -= amount
                 break
             else
                 amount -= player.remaining_stock
                 player.raise_price
+                has_changed_flag = true
             end
         end
+
+        player.create_change_history if has_changed_flag
 
         if buy_history.invalid? || user_stock.invalid?
             puts "failed"
@@ -74,7 +77,9 @@ class TransactionController < ApplicationController
         end
 
         temp_sell_amount = sell_amount
+
         # 株価システム
+        has_changed_flag = false
         while true
             if player.remaining_stock + temp_sell_amount < player.border_stock 
                 player.remaining_stock += temp_sell_amount
@@ -82,8 +87,11 @@ class TransactionController < ApplicationController
             else
                 temp_sell_amount -= player.border_stock - player.remaining_stock
                 player.lower_price
+                has_changed_flag = true
             end
         end
+
+        player.create_change_history if has_changed_flag
 
         stocks.each do |stock|
             if sell_amount == 0
