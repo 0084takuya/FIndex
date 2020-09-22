@@ -60,7 +60,7 @@ class TransactionController < ApplicationController
         stocks = user_player_stocks(params[:player_id])
         player = Player.find(params[:player_id])
         sell_amount = params[:amount].to_i
-
+        
         if stocks.nil?
             puts "failed"
             # 保有していない
@@ -73,33 +73,36 @@ class TransactionController < ApplicationController
             return
         end
 
+        temp_sell_amount = sell_amount
         # 株価システム
         while true
-            if player.remaining_stock + sell_amount < player.border_stock 
-                player.remaining_stock += sell_amount
+            if player.remaining_stock + temp_sell_amount < player.border_stock 
+                player.remaining_stock += temp_sell_amount
                 break
             else
-                sell_amount -= player.border_stock - player.remaining_stock
+                temp_sell_amount -= player.border_stock - player.remaining_stock
                 player.lower_price
             end
         end
 
         stocks.each do |stock|
-            if sell_amount == 0 
+            if sell_amount == 0
                 break
             end
 
             sold_amount = 0
+
             if stock.amount > sell_amount
                 stock.amount -= sell_amount
                 sold_amount = sell_amount
                 sell_amount = 0
-                stock.save
             else
                 sell_amount -= stock.amount
                 sold_amount = stock.amount
                 stock.destroy
             end
+
+            stock.save
             
             sell_history = SellHistory.new(
                 user_id: current_user.id,
