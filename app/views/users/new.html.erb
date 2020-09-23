@@ -3,22 +3,37 @@
     <div class="form-row">
         <%= form.label :email, class: "form-label" %>
         <%= form.text_field :email, class: "form-field" %>
+        <% if @user.errors.include?(:email) %>
+            <p class="error-message"><%= @user.errors.full_messages_for(:email).first %></p>
+        <% end %>
     </div>
     <div class="form-row">
         <%= form.label :password, class: "form-label" %>
         <%= form.password_field :password, class: "form-field" %>
+        <% if @user.errors.include?(:password) %>
+            <p class="error-message"><%= @user.errors.full_messages_for(:password).first %></p>
+        <% end %>
     </div>
     <div class="form-row">
         <%= form.label :password_confirmation, class: "form-label" %>
         <%= form.password_field :password_confirmation, class: "form-field" %>
+        <% if @user.errors.include?(:password_confirmation) %>
+            <p class="error-message"><%= @user.errors.full_messages_for(:password_confirmation).first %></p>
+        <% end %>
     </div>
     <div class="form-row">
         <%= form.label :user_name, class: "form-label" %>
         <%= form.text_field :user_name, class: "form-field" %>
+        <% if @user.errors.include?(:user_name) %>
+            <p class="error-message"><%= @user.errors.full_messages_for(:user_name).first %></p>
+        <% end %>
     </div>
     <div class="form-row">
         <%= form.label :phone, class: "form-label" %>
         <%= form.text_field :phone, class: "form-field" %>
+        <% if @user.errors.include?(:phone) %>
+            <p class="error-message"><%= @user.errors.full_messages_for(:phone).first %></p>
+        <% end %>
     </div>
     <div class="form-row">
         <%= form.label :birthday, class: "form-label" %>
@@ -30,17 +45,20 @@
            <%= form.number_field :birthday_day, class: "birthday-field" %>
            <p>日</p>
         </div>
+        <% if @user.errors.include?(:birthday) %>
+            <p class="error-message"><%= @user.errors.full_messages_for(:birthday).first %></p>
+        <% end %>
     </div>
     <div class="form-row">
         <%= form.label :invitation_code, class: "form-label" %>
         <%= form.text_field :invitation_code, class: "form-field" %>
     </div>
     <div class="checkbox-row">
-        <%= form.check_box :notification %>
+        <%= form.check_box :notification, class: "checkbox" %>
         <p>Eメール通知を受け取る</p>
     </div>
     <div class="checkbox-row">
-        <%= form.check_box :agree_term_of_service %>
+        <%= form.check_box :agree_term_of_service, class: "checkbox" %>
         <p>利用規約に同意する</p>
     </div>
     <%= form.submit "登録する", class: "form-button" %>

@@ -62,3 +62,7 @@ gem 'gon'
 
 # Kaminari
 gem 'kaminari'
+
+# Validator
+gem 'email_validator', '~> 1.6'
+gem 'telephone_number'

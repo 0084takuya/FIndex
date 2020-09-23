@@ -10,11 +10,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .field_with_errors {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .form-label {
+        color: $off-red;
+      }
+    }
   }
 
   .small-green-text {
     width: 400px;
   }
+}
+
+.error-message {
+  width: 400px;
+  font-size: $font-small;
+  color: $off-red;
+  text-align: right;
+  margin: 10px 0 15px;
 }
 
 .form-title {
@@ -43,6 +61,14 @@
   padding: 0 10px;
 }
 
+.birthday-field {
+  width: 33.3%;
+  background-color: $white;
+  border: solid 1px $light-gray;
+  height: 40px;
+  padding: 0 10px;
+}
+
 .birthday-row {
   width: 400px;
   display: flex;
@@ -54,30 +80,23 @@
     font-size: $font-middle;
     font-weight: bold;
   }
-}
 
-.birthday-field {
-  width: 33.3%;
-  background-color: $white;
-  border: solid 1px $light-gray;
-  height: 40px;
-  padding: 0 10px;
+  .field_with_errors {
+    width: 33.3%;
+
+    .birthday-field {
+      width: 100%;
+    }
+  }
 }
 
 .checkbox-row {
-  padding-top: 20px;
+  padding-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   width: 400px;
-
-  input {
-    width: 30px;
-    height: 30px;
-    margin-left: 70px;
-    margin-right: 30px;
-    display: block;
-  }
 
   p {
     font-size: $font-middle;
@@ -98,13 +117,78 @@
   }
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  outline: none;
+
+  display: block;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+
+  width: 28px;
+  height: 28px;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+input[type="checkbox"]::before {
+  display: block;
+  position: absolute;
+  content: "";
+
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border: solid 1px $light-gray;
+  border-radius: 3px;
+}
+
+input[type="checkbox"]:checked::before {
+  background-color: $light-green;
+  border: solid 1px $light-green;
+}
+
+input[type="checkbox"]::after {
+  display: block;
+
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 5px;
+
+  width: 8px;
+  height: 16px;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  transform: rotate(45deg);
+
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked::after {
+  opacity: 1;
+}
+
 @media screen and (max-width: 480px) {
   form {
     width: 100%;
   }
 
   .form-field,
-  .form-label {
+  .form-label,
+  .birthday-row,
+  .error-message {
     width: 90%;
   }
 }

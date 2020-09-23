@@ -80,6 +80,8 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    email_validator (1.6.0)
+      activemodel
     erubi (1.9.0)
     ffi (1.13.1)
     globalid (0.4.2)
@@ -226,6 +228,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    telephone_number (1.4.9)
     temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
@@ -263,6 +266,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  email_validator (~> 1.6)
   gon
   jbuilder (~> 2.7)
   kaminari
@@ -276,6 +280,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)
+  telephone_number
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)

@@ -1,4 +1,30 @@
 ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワードの確認
+        phone: 電話番号
+        user_name: 氏名
+        birthday: 生年月日
+        notification: 通知
+        invitation_code: 招待コード
+        agree_term_of_service: 利用規約
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: がパスワードと一致していません。
+      messages:
+        too_short: が短すぎます
+        blank: が空欄です
+        invalid: の入力が不正です
+        invalid_password: は6文字以上で、半角英数字を使用してください
+        disagree_to_term_of_service: に同意がなければ登録をすることができません
   views:
     pagination:
       first: ""

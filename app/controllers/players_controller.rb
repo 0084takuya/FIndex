@@ -20,7 +20,6 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     change_histories = ChangeHistory.where(player_id: params[:id]).order(created_at: :desc)
     gon.player = @player
-
     gon.chart_data = chart_data_from_change_histories(change_histories, @player.buy_price)
   end 
 end

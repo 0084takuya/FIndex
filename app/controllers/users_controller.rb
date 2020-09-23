@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   def index
-    @users = User.all
+    redirect_to action: :new
   end
 
   def show
@@ -30,14 +30,26 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new(processed_params)
+    invalid_flag = false
+
     if params[:user][:agree_term_of_service] == "0" then
-      return
+      flash[:notice] = "利用規約に同意してください。"
+      invalid_flag = true
     end
-    user = User.new(processed_params)
-    if user.save
-      puts "success"
+
+    if !@user.save
+      flash[:notice] = "登録に失敗しました。"
+      invalid_flag = true
+    end
+
+    if invalid_flag
+      render :new, :layout => 'single'
+      return
     else 
-      puts "failed" 
+      flash[:notice] = "登録完了しました！"
+      session[:user_id] = @user.id
+      redirect_to @user
     end
   end
 
@@ -60,8 +72,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :user_name, :phone, :birthday_year, :birthday_month, :birthday_day, :invitation_code, :notification, :agree_term_of_service)
   end
-
-  def format_date(year, month, day)
-    Date.new(year.to_i, month.to_i, day.to_i)
-  end 
 end
