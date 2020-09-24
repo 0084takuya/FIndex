@@ -32,10 +32,10 @@ ChartのlabelをRuby側で作る
 ユーザ登録のparams
 Chartのホバー時の表示
 購入時のInputをPlaceHolderに
+確認用confirmの見た目
 
 
 9/24~
-確認用ポップアップ
 選手画像->CarrierWave
 
 
@@ -69,6 +69,6 @@ currentMemberでマイページへのアクセス
 リンクを貼る
 ユーザ登録の際のバリデーション
 購入時、売却時のバリデーション
-
+確認用ポップアップ
 
 kill -9 $(lsof -i tcp:3000 -t)

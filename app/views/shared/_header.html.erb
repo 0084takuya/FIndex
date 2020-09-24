@@ -14,17 +14,17 @@
     <div class="header-bottom">
         <nav>
             <div class="header-item border-right">
-                <%= image_tag("chart") %>
+                <%= image_tag "system/chart" %>
                 <%= link_to "マーケット", :players %>
             </div>
             <div class="header-item border-right">
-                <%= image_tag("medal") %>
+                <%= image_tag "system/medal" %>
                 <%= link_to "ディビデント", :dividend_index %>
             </div>
         </nav>
         <% if logged_in? %>
             <div class="header-item border-left">
-                <%= image_tag("person") %>
+                <%= image_tag "system/person" %>
                 <%= link_to "マイページ", user_path(session[:user_id]) %>
             </div>
         <% end %>
@@ -39,16 +39,16 @@
     <nav class="globalMenuSp">
         <ul>
             <li>
-                <%= image_tag("chart") %>
+                <%= image_tag "system/chart" %>
                 <%= link_to "マーケット", :players %>
             </li>
             <li>
-                <%= image_tag("medal") %>
+                <%= image_tag "system/medal" %>
                 <%= link_to "ディビデント", :dividend_index %>
             </li>        
             <% if logged_in? %>
                 <li>
-                    <%= image_tag("person") %>
+                    <%= image_tag "system/person" %>
                     <%= link_to "マイページ", user_path(session[:user_id]) %>
                 </li>
             <% end %>

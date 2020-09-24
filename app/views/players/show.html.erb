@@ -1,7 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <div class="player-info">
     <div class="player-img">
-        <%= image_tag "muroya", class: "rounded-img" %>
+        <%= player_image(@player.image_name) %>
     </div>
     <div class="player-header">
         <div>
@@ -9,11 +9,11 @@
             <% if current_user %>
                 <% if !Watch.exists?(user_id: current_user.id, player_id: @player.id) %>
                     <%= link_to player_add_path(@player), method: :post, class: "watch-button" do %>
-                        <%= image_tag "phone" %>
+                        <%= image_tag "system/phone" %>
                     <% end %>
                 <% else %>
                     <%= link_to player_add_path(@player), method: :delete, class: "watch-button" do %>
-                        <%= image_tag "scope" %>
+                        <%= image_tag "system/scope" %>
                     <% end %>
                 <% end %>
             <% else %>
@@ -35,23 +35,23 @@
     </div>
     <div class="player-detail">
         <div class="player-cell" id="player_cell_1">
-            <%= image_tag "team" %>
+            <%= image_tag "system/team" %>
             <p><%= @player.team %></p>
         </div>
         <div class="player-cell" id="player_cell_2">
-            <%= image_tag "team" %>
+            <%= image_tag "system/team" %>
             <p><%= @player.position %></p>
         </div>
         <div class="player-cell" id="player_cell_3">
-            <%= image_tag "team" %>
+            <%= image_tag "system/team" %>
             <p><%= @player.age %></p>
         </div>
         <div class="player-cell" id="player_cell_4">
-            <%= image_tag "team" %>
+            <%= image_tag "system/team" %>
             <p><%= @player.height %></p>
         </div>
         <div class="player-cell" id="player_cell_5">
-            <%= image_tag "team" %>
+            <%= image_tag "system/team" %>
             <p><%= @player.weight %></p>
         </div>
     </div>

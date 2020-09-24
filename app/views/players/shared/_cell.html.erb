@@ -1,6 +1,6 @@
 <tr onclick='window.location="<%= '/players/' + player.id.to_s %>"' role="link">
     <td>
-        <%= image_tag "muroya", class: "rounded-img" %>
+        <%= player_image(player.image_name) %>
     </td>
     <td>
         <p><%= player.name %></p>
@@ -21,11 +21,11 @@
         <% if current_user %>
             <% if !Watch.exists?(user_id: current_user.id, player_id: player.id) %>
                 <%= link_to player_add_path(player), method: :post, class: "watch-button" do %>
-                    <%= image_tag "phone" %>
+                    <%= image_tag "system/phone" %>
                 <% end %>
             <% else %>
                 <%= link_to player_add_path(player), method: :delete, class: "watch-button" do %>
-                    <%= image_tag "scope" %>
+                    <%= image_tag "system/scope" %>
                 <% end %>
             <% end %>
         <% else %>

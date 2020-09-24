@@ -3,10 +3,10 @@
     <div class="modal-content">
         <%= form_tag '/sell', method: :post do %>
             <a class="modal-close" href="">
-                <%= image_tag "cross" %>
+                <%= image_tag "system/cross" %>
             </a>
             <div class="modal-content-item">
-                <%= image_tag "muroya", class: "rounded-img" %>
+                <%= player_image(@player.image_name) %>
                 <h3>
                     <%= @player.name %>
                 </h3>

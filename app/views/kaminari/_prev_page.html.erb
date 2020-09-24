@@ -7,7 +7,7 @@
     remote:        data-remote
 -%>
 <% @content = capture do %>
-  <%= image_tag "down" %>
+  <%= image_tag "system/down" %>
 <% end %>
 <span class="prev">
   <%= link_to_unless current_page.first?, @content, url, rel: 'prev', remote: remote %>
