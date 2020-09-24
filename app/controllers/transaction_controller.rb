@@ -72,14 +72,14 @@ class TransactionController < ApplicationController
 
     sell_amount = params[:amount].to_i
     
-    if sell_amount <= 0
-      invalid_flag = true
-      flash[:notice] = "売却株数が不正です。"
-    end
-
     if user_player_stock_total(stocks) < sell_amount
       invalid_flag = true
       flash[:notice] = "売却株数が大きすぎます。"
+    end
+
+    if sell_amount <= 0
+      invalid_flag = true
+      flash[:notice] = "売却株数が不正です。"
     end
 
     if stocks.nil?
