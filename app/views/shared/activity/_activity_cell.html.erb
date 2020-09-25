@@ -1,11 +1,10 @@
-<% player = player_id_to_player(transaction.player_id) %>
 <tr onclick='window.location="<%= '/players/' + transaction.player_id.to_s %>"' role="link">
     <td>
-        <%= player_image(player.image_name) %>
+        <%= player_image(transaction.player.image_name) %>
     </td>
     <td>
-        <p class="buy-user"><%= user_id_to_user(transaction.user_id).user_name %>さんが購入</p>
-        <p class="buy-info"><%= player.name %> x <%= transaction.amount %></p>
+        <p class="buy-user"><%= transaction.user.user_name %>さんが購入</p>
+        <p class="buy-info"><%= transaction.player.name %> x <%= transaction.amount %></p>
     </td>
     <td>
         <p class="buy-cost"><%= transaction.amount * transaction.buy_price %></p>

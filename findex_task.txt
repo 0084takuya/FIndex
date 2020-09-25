@@ -1,29 +1,16 @@
 システム:
 配当金システム
+招待コード
 
 LAST:
 画像の見た目
 ルーティングの確認
 404ページ
 日本語対応
-
-HEAVY_NEED:
-売却画面の見た目
-売却履歴、保有株式のページング
-
-NEED:
-ログインしていないときの表示
-Rails_adminのユーザ、パスワード
-Dividendのアイテムの配置
-Watchの見た目切替
-24hの見た目
-Enterでフォーム送信しないように
-リファクタリング
-電話番号のValidation
-メールアドレスをunique: true
-Noticeの文面をわかりやすく
+スマホでの見た目チェック
 
 EXTRA:
+リファクタリング
 ソート項目の列挙型
 チーム検索
 buy_history, sell_historyのuser, playerをreference化
@@ -33,10 +20,17 @@ ChartのlabelをRuby側で作る
 Chartのホバー時の表示
 購入時のInputをPlaceHolderに
 確認用confirmの見た目
+Kaminariの設定
 
 
-9/24~
-選手画像->CarrierWave
+9/26
+フッター
+ログインしていないときの表示
+Noticeの文面をわかりやすく
+Long Notificication
+Rails_adminのユーザ、パスワード環境変数
+電話番号のValidation
+DIVIDEND
 
 
 
@@ -70,5 +64,17 @@ currentMemberでマイページへのアクセス
 ユーザ登録の際のバリデーション
 購入時、売却時のバリデーション
 確認用ポップアップ
+選手画像
+24hの見た目
+売却履歴、保有株式のページング
+売却画面の見た目
+Watchソート
+Watchの見た目切替
+Dividendのアイテムの配置
+Enterでフォーム送信しないように
+小数点以下を保持する
+メールアドレスをunique: true
+
+
 
 kill -9 $(lsof -i tcp:3000 -t)

@@ -16,8 +16,14 @@
         <p>24h</p>
     </th>
     <th>
-        <%= form_tag(:players, method: :get, remote: true) do %>
-            <%= select_tag "sort", options_for_select([ "買値昇順", "売値昇順", "買値降順", "売値降順", "全て" ], @sort), class: "sort-button", :onchange => "this.form.submit();" %>
+        <% if logged_in? %>
+            <%= form_tag(:players, method: :get, remote: true) do %>
+                <%= select_tag "sort", options_for_select([ "買値昇順", "売値昇順", "買値降順", "売値降順", "監視中", "全て" ], @sort), class: "sort-button", :onchange => "this.form.submit();" %>
+            <% end %>
+        <% else %>
+            <%= form_tag(:players, method: :get, remote: true) do %>
+                <%= select_tag "sort", options_for_select([ "買値昇順", "売値昇順", "買値降順", "売値降順", "全て" ], @sort), class: "sort-button", :onchange => "this.form.submit();" %>
+            <% end %>
         <% end %>
     </th>
 </tr>

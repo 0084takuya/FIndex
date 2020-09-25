@@ -107,6 +107,17 @@
   }
 }
 
+.plus-delta {
+  color: $green;
+}
+
+.equal-delta {
+}
+
+.minus-delta {
+  color: $off-red;
+}
+
 @media screen and (max-width: 480px) {
   .sort-button {
     width: 80px;

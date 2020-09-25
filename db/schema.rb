@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_071647) do
+ActiveRecord::Schema.define(version: 2020_09_25_145250) do
 
   create_table "buy_histories", force: :cascade do |t|
     t.string "user_id", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_071647) do
     t.integer "remaining_stock", default: 0, null: false
     t.integer "border_stock", default: 100, null: false
     t.string "image_name"
+    t.decimal "price", precision: 10, scale: 5, null: false
   end
 
   create_table "sell_histories", force: :cascade do |t|
@@ -51,7 +52,6 @@ ActiveRecord::Schema.define(version: 2020_09_22_071647) do
     t.string "player_id", null: false
     t.integer "amount", null: false
     t.integer "sell_price", null: false
-    t.integer "buy_price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2020_09_22_071647) do
     t.integer "user_id", null: false
     t.integer "player_id", null: false
     t.integer "amount", null: false
-    t.integer "buy_price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["player_id"], name: "index_user_stocks_on_player_id"
@@ -78,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_071647) do
     t.boolean "notification", null: false
     t.string "invitation_code"
     t.integer "point", default: 0
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "watches", force: :cascade do |t|

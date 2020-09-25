@@ -10,6 +10,9 @@ class PlayersController < ApplicationController
       @players = Player.page(params[:page]).sell_asc
     when "売値降順" then
       @players = Player.page(params[:page]).sell_desc
+    when "監視中" then
+      watch_list = Watch.where(user_id: current_user.id)
+      @players = watch_list_to_players(watch_list).page(params[:page])
     else 
       @players = Player.page(params[:page])
       @sort = "全て"

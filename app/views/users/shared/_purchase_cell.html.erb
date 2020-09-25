@@ -1,20 +1,14 @@
 <tr onclick='window.location="<%= '/players/' + sell.player_id.to_s %>"' role="link">
     <td>
-        <%= player_image(@player.image_name) %>
+        <%= player_image(sell.player.image_name) %>
     </td>
     <td>
-        <p><%= player_id_to_player(sell.player_id).name %></p>
+        <p><%= sell.player.name %></p>
     </td>
     <td>
         <p><%= sell.amount %></p>
     </td>
     <td>
-        <p><%= sell.buy_price %></p>
-    </td>
-    <td>
         <p><%= sell.sell_price %></p>
-    </td>
-    <td>
-        <p><%= sell.amount * (sell.sell_price - sell.buy_price) %></p>
     </td>
 </tr>

@@ -27,13 +27,17 @@ class TransactionController < ApplicationController
       amount: amount,
       buy_price: player.buy_price,
     )
-        
-    user_stock = UserStock.new(
-      user_id: current_user.id,
-      player_id: player.id,
-      amount: amount,
-      buy_price: player.buy_price,
-    )
+      
+    user_stock = user_player_stock(player.id)
+    if user_stock.present?
+      user_stock.amount += amount
+    else 
+      user_stock = UserStock.new(
+        user_id: current_user.id,
+        player_id: player.id,
+        amount: amount,
+      )
+    end
 
     # 株価システム
     has_changed_flag = false
@@ -66,13 +70,13 @@ class TransactionController < ApplicationController
   end
     
   def sell
-    stocks = user_player_stocks(params[:player_id])
+    stock = user_player_stock(params[:player_id])
     player = Player.find(params[:player_id])
     invalid_flag = false
 
     sell_amount = params[:amount].to_i
     
-    if user_player_stock_total(stocks) < sell_amount
+    if stock.amount < sell_amount
       invalid_flag = true
       flash[:notice] = "売却株数が大きすぎます。"
     end
@@ -82,7 +86,7 @@ class TransactionController < ApplicationController
       flash[:notice] = "売却株数が不正です。"
     end
 
-    if stocks.nil?
+    if stock.nil?
       invalid_flag = true
       flash[:notice] = "株式を保持していません。"
     end
@@ -109,42 +113,26 @@ class TransactionController < ApplicationController
 
     player.create_change_history if has_changed_flag
 
-    stocks.each do |stock|
-      if sell_amount == 0
-        break
-      end
+    stock.amount -= sell_amount
+    
+    stock.destroy if stock.amount == 0
 
-      sold_amount = 0
+    sell_history = SellHistory.new(
+      user_id: current_user.id,
+      player_id: player.id,
+      amount: sell_amount,
+      sell_price: player.sell_price
+    )
 
-      if stock.amount > sell_amount
-        stock.amount -= sell_amount
-        sold_amount = sell_amount
-        sell_amount = 0
-      else
-        sell_amount -= stock.amount
-        sold_amount = stock.amount
-        stock.destroy
-      end
-
-      stock.save
-      
-      sell_history = SellHistory.new(
-        user_id: current_user.id,
-        player_id: player.id,
-        amount: sold_amount,
-        buy_price: stock.buy_price,
-        sell_price: player.sell_price
-      )
-
-      if !sell_history.save 
-        flash[:notice] = "売却に失敗しました。"
-        redirect_to player
-        return
-      end
-      
-      current_user.point += sold_amount * player.sell_price
+    if !sell_history.save 
+      flash[:notice] = "売却に失敗しました。"
+      redirect_to player
+      return
     end
+      
+    current_user.point += sell_amount * player.sell_price
 
+    stock.save
     player.save
     current_user.save validate: false
 

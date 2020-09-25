@@ -11,14 +11,20 @@
                     <%= @player.name %>
                 </h3>
             </div>
+            <%
+            stock = user_player_stock(@player.id) 
+            if stock.present?
+            %>
             <div class="modal-content-item">
-                <p>保有している株式</p>
-                <div class="player-stock">
-                    <% user_player_stocks(@player.id).each do |stock| %>
-                        <p><span><%= stock.buy_price %></span> x <%= stock.amount %></p>
-                    <% end %>
-                </div>
+                <p>保有している株数</p>
+                <p><%= stock.amount %></p>
             </div>
+            <% else %>
+            <div class="modal-content-item">
+                <p>保有している株数</p>
+                <p>0</p>
+            </div>
+            <% end %>
             <div class="modal-content-item">
                 <p>現在の売値</p>
                 <p><%= @player.sell_price %></p>

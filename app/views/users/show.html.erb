@@ -33,6 +33,7 @@
         <%= render "shared/no_data" %>
     <% end %>
 </table>
+<%= paginate @user_stock, :param_name => 'user_stock_page' %>
 
 <table class="user-purchase-table">
     <div class="table-header">
@@ -47,6 +48,7 @@
         <%= render "shared/no_data" %>
     <% end %>
 </table>
+<%= paginate @sell_histories, :param_name => 'user_purchase_page'  %>
 
 <!--
 <div class="link-container">

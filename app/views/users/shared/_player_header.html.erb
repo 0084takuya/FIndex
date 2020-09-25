@@ -7,20 +7,14 @@
         <p>所有株数</p>
     </th>
     <th>
-        <p>買値</p>
-    </th>
-    <th>
         <p>現在の売値</p>
-    </th>
-    <th>
-        <p>利益</p>
     </th>
     <th>
         <p>24h</p>
     </th>
     <th>
         <%= form_tag(:user, method: :get, remote: true) do %>
-            <%= select_tag "sort", options_for_select([ "買値昇順", "買値降順", "全て" ], @sort), class: "sort-button", :onchange => "this.form.submit();" %>
+            <%= select_tag "sort", options_for_select([ "買値昇順", "買値降順", "売値昇順", "売値降順", "全て" ], @sort), class: "sort-button", :onchange => "this.form.submit();" %>
         <% end %>
     </th>
 </tr>

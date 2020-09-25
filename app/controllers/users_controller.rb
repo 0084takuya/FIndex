@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @sell_histories = SellHistory.where(user_id: @user.id)
-    @user_stock = UserStock.where(user_id: @user.id)
+    @sell_histories = SellHistory.where(user_id: @user.id).page(params[:user_purchase_page]).per(5).order(created_at: :desc)
+    @user_stock = UserStock.where(user_id: @user.id).page(params[:user_stock_page]).per(10)
     
     @sort = params[:sort]
     puts @sort
@@ -16,6 +16,10 @@ class UsersController < ApplicationController
       @user_stock = @user_stock.order(buy_price: :asc)
     when "買値降順" then
       @user_stock = @user_stock.order(buy_price: :desc)
+    when "売値昇順" then
+      @user_stock = @user_stock.order(sell_price: :asc)
+    when "売値降順" then
+      @user_stock = @user_stock.order(sell_price: :desc)
     else
       @sort = "全て"
     end
@@ -38,7 +42,12 @@ class UsersController < ApplicationController
       invalid_flag = true
     end
 
-    if !@user.save
+    begin
+      if !@user.save
+        flash[:notice] = "登録に失敗しました。"
+        invalid_flag = true
+      end
+    rescue ActiveRecord::RecordNotUnique
       flash[:notice] = "登録に失敗しました。"
       invalid_flag = true
     end

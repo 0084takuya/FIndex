@@ -1,19 +1,14 @@
 module PlayersHelper
-  def player_id_to_player(player_id)
-    player = Player.find(player_id)
-    player
+  def user_player_stock(player_id)
+    UserStock.find_by(user_id: current_user.id, player_id: player_id)
   end
 
-  def user_player_stocks(player_id)
-    UserStock.where(user_id: current_user.id, player_id: player_id).order(buy_price: :desc)
-  end
-
-  def user_player_stock_total(stocks)
-    total_amount = 0
-    stocks.each do |stock|
-      total_amount += stock.amount
+  def watch_list_to_players(watch_list)
+    player_ids = []
+    watch_list.each do |watch|
+      player_ids.push(watch.player_id)
     end
-    total_amount
+    Player.where(id: player_ids)
   end
 
   # change_historiesは新しい順で渡す
@@ -57,4 +52,5 @@ module PlayersHelper
   def recent_transaction
     BuyHistory.all.order(created_at: :desc).limit(5)
   end
+
 end

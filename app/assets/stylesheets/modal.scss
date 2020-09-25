@@ -58,20 +58,6 @@
     padding: 5px;
     height: 100px;
   }
-
-  .player-stock {
-    width: 200px;
-
-    p {
-      text-align: right;
-      font-size: $font-middle;
-      font-weight: bold;
-
-      span {
-        font-size: $font-large;
-      }
-    }
-  }
 }
 
 .modal-close {

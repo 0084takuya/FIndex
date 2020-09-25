@@ -24,14 +24,16 @@ class Player < ApplicationRecord
   end
 
   def raise_price
-    self.buy_price = (self.buy_price * 1.02).floor
-    self.sell_price = (self.buy_price * 0.92).floor
+    self.price = self.price * 1.02
+    self.buy_price = (self.price).floor
+    self.sell_price = (self.price * 0.92).floor
     self.remaining_stock = self.border_stock
   end
 
   def lower_price
-    self.buy_price = (self.buy_price * 0.98).floor
-    self.sell_price = (self.buy_price * 0.92).floor
+    self.price = self.price * 0.98
+    self.buy_price = (self.price).floor
+    self.sell_price = (self.price * 0.92).floor
     self.remaining_stock = 0
   end
 

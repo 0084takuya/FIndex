@@ -1,25 +1,18 @@
 <tr onclick='window.location="<%= '/players/' + stock.player_id.to_s %>"' role="link">   
-    <% player = player_id_to_player(stock.player_id) %>
     <td>
-        <%= player_image(@player.image_name) %>
+        <%= player_image(stock.player.image_name) %>
     </td>
     <td>
-        <p><%= player.name %></p>
+        <p><%= stock.player.name %></p>
     </td>
     <td>
         <p><%= stock.amount %></p>
     </td>
     <td>
-        <p><%= stock.buy_price %></p>
+        <p><%= stock.player.sell_price %></p>
     </td>
     <td>
-        <p><%= player.sell_price %></p>
-    </td>
-    <td>
-        <p><%= (player.sell_price - stock.buy_price) * stock.amount %></p>
-    </td>
-    <td>
-        <p><%= player.calc_delta %></p>
+        <p><%= plus_minus_delta(stock.player.calc_delta) %></p>
     </td>
     <td>
         <%= link_to "", class: "large-sell-button" do %>

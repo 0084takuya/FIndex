@@ -20,4 +20,14 @@ module ApplicationHelper
             return image_tag "system/person", class: "rounded-img"
         end
     end
+
+    def plus_minus_delta(delta)
+        if delta > 0 
+            return content_tag(:p, delta.to_s, class: "plus-delta")
+        elsif delta == 0
+            return content_tag(:p, delta.to_s, class: "equal-delta")
+        else
+            return content_tag(:p, delta.to_s, class: "minus-delta")
+        end
+    end
 end
