@@ -15,10 +15,6 @@
         <%= image_tag "system/mail" %>
         <p><%= @user.phone %></p>
     </div>
-    <div class="user-cell" id="user_cell_4">
-        <%= image_tag "system/mail" %>
-        <p><%= @user.birthday %></p>
-    </div>
 </div>
 <table class="user-player-table">
     <div class="table-header">
@@ -49,9 +45,3 @@
     <% end %>
 </table>
 <%= paginate @sell_histories, :param_name => 'user_purchase_page'  %>
-
-<!--
-<div class="link-container">
-    <%= link_to "もっと見る", "#", class: "green-link" %>
-</div>
--->

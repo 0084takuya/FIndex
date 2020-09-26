@@ -34,3 +34,18 @@
     }
   }
 }
+
+.error-page {
+  padding: 30px;
+
+  h2 {
+    color: $green;
+    font-size: $font-title;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: $green;
+    font-size: $font-middle;
+  }
+}

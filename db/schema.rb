@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_145250) do
+ActiveRecord::Schema.define(version: 2020_09_26_132228) do
 
   create_table "buy_histories", force: :cascade do |t|
     t.string "user_id", null: false
@@ -77,7 +77,9 @@ ActiveRecord::Schema.define(version: 2020_09_25_145250) do
     t.boolean "notification", null: false
     t.string "invitation_code"
     t.integer "point", default: 0
+    t.string "public_uid"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["public_uid"], name: "index_users_on_public_uid", unique: true
   end
 
   create_table "watches", force: :cascade do |t|

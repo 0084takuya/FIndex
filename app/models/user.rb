@@ -3,6 +3,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_secure_password
+  generate_public_uid
+
   attribute :agree_term_of_service, :boolean, default: false
   attribute :birthday_year, :integer
   attribute :birthday_month, :integer
@@ -21,6 +23,10 @@ class User < ApplicationRecord
   validates :birthday_month, presence: true
   validates :birthday_day, presence: true
   validate :date_before_limit
+
+  def to_param
+    public_uid
+  end
 
   private
   def date_before_limit

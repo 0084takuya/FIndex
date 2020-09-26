@@ -36,11 +36,11 @@
     <div class="player-detail">
         <div class="player-cell" id="player_cell_1">
             <%= image_tag "system/team" %>
-            <p><%= @player.team %></p>
+            <p><%= link_to @player.team, players_path(team: @player.team) %></p>
         </div>
         <div class="player-cell" id="player_cell_2">
             <%= image_tag "system/team" %>
-            <p><%= @player.position %></p>
+            <p><%= link_to @player.position, players_path(team: @player.position) %></p>
         </div>
         <div class="player-cell" id="player_cell_3">
             <%= image_tag "system/team" %>

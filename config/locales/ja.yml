@@ -2,6 +2,12 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      buy_history: 購入履歴
+      change_history: 選手の株価変動
+      player: 選手
+      sell_history: 売却履歴
+      user_stock: ユーザーの持ち株
+      watch: 監視
     attributes:
       user:
         email: メールアドレス

@@ -25,7 +25,7 @@
         <% if logged_in? %>
             <div class="header-item border-left">
                 <%= image_tag "system/person" %>
-                <%= link_to "マイページ", user_path(session[:user_id]) %>
+                <%= link_to "マイページ", current_user %>
             </div>
         <% end %>
     </div>

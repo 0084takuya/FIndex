@@ -1,18 +1,18 @@
-<tr onclick='window.location="<%= '/players/' + player.id.to_s %>"' role="link">
+<tr>
     <td>
         <%= player_image(player.image_name) %>
     </td>
     <td>
-        <p><%= player.name %></p>
+        <p><%= link_to player.name, player, class: "link" %></p>
     </td>
     <td>
-        <p><%= player.team %></p>
+        <%= link_to player.team, players_path(team: player.team), class: "link" %>
     </td>
     <td>
         <p><%= player.country %></p>
     </td>
     <td>
-        <p><%= player.position %></p>
+        <p><%= link_to player.position, players_path(position: player.position), class: "link" %></p>
     </td>
     <td>
         <p><%= plus_minus_delta(player.calc_delta) %></p>
@@ -31,15 +31,19 @@
         <% else %>
 
         <% end %>
-        <p class="buy-button">
-            <span><%= player.buy_price %></span>
-            <br />
-            購入
-        </p>
-        <p class="sell-button">
-            <span><%= player.sell_price %></span>
-            <br />
-            売却
-        </p>
+        <%= link_to player do %>
+            <p class="buy-button">
+                <span><%= player.buy_price %></span>
+                <br />
+                購入
+            </p>
+        <% end %>
+        <%= link_to player do %>
+            <p class="sell-button">
+                <span><%= player.sell_price %></span>
+                <br />
+                売却
+            </p>
+        <% end %>
     </td>
 </tr>

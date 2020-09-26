@@ -65,8 +65,10 @@ class UsersController < ApplicationController
 
   private 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(public_uid: params[:id])
     if current_user != @user
+      flash[:notice_title] = "エラーが発生しました"
+      flash[:notice] = "不正なアクセスです。"
       redirect_to :root
       return
     end

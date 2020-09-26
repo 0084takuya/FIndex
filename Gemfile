@@ -75,3 +75,6 @@ gem 'email_validator', '~> 1.6'
 
 # Env Variables
 gem 'dotenv-rails'
+
+# Public UID
+gem 'public_uid'

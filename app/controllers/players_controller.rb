@@ -1,6 +1,9 @@
 class PlayersController < ApplicationController
   def index
     @sort = params[:sort]
+    @team = params[:team]
+    @position = params[:position]
+    
     case params[:sort]
     when "買値昇順" then
       @players = Player.page(params[:page]).buy_asc
@@ -16,6 +19,14 @@ class PlayersController < ApplicationController
     else 
       @players = Player.page(params[:page])
       @sort = "全て"
+    end
+
+    if @team.present?
+      @players = @players.where(team: @team)
+    end
+
+    if @position.present?
+      @players = @players.where(position: @position)
     end
   end
 

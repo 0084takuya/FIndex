@@ -29,4 +29,6 @@ Rails.application.routes.draw do
       post 'signin'
     end
   end 
+
+  get '*path', controller: 'application', action: 'render_404'
 end

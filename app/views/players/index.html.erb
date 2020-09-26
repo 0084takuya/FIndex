@@ -1,8 +1,14 @@
 <table class="player-table">
   <%= render "players/shared/header" %>
-  <% @players.each do |player| %>
-    <%= render partial: "players/shared/cell", locals: { player: player } %>
+  <% if @players.present? %>
+    <% @players.each do |player| %>
+      <%= render partial: "players/shared/cell", locals: { player: player } %>
+    <% end %>
   <% end %>
 </table>
+<% if @players.count == 0 %>
+    <%= render "shared/no_data" %>
+<% end %>
+
 <%= paginate(@players) %>
 <%= javascript_pack_tag 'scope' %>
