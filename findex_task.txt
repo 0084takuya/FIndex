@@ -1,31 +1,19 @@
-システム:
-配当金システム
-招待コード
-
 LAST:
 画像の見た目
 ルーティングの確認
 404ページ
-日本語対応
 スマホでの見た目チェック
 
 EXTRA:
-リファクタリング
-ソート項目の列挙型
 チーム検索
-buy_history, sell_historyのuser, playerをreference化
 Chartの範囲を変えられるように
 ChartのlabelをRuby側で作る
-ユーザ登録のparams
 Chartのホバー時の表示
-購入時のInputをPlaceHolderに
-確認用confirmの見た目
-Kaminariの設定
-
 
 9/26
 DIVIDEND
-
+配当金システム
+招待コード
 
 
 済:
@@ -74,7 +62,16 @@ Noticeの文面をわかりやすく
 Long Notificication
 Rails_adminのユーザ、パスワード環境変数
 電話番号のValidation
+日本語対応
+購入時のInputをPlaceHolderに
 
 
 
 kill -9 $(lsof -i tcp:3000 -t)
+
+
+AFTER:
+リファクタリング
+ソート項目の列挙型
+buy_history, sell_historyのuser, playerをreference化
+確認用confirmの見た目

@@ -5,4 +5,10 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="page gap"><%= t('views.pagination.truncate').html_safe %></span>
+<% @content = capture do %>
+  <%= image_tag "system/down" %>
+<% end %>
+<span class="last">
+  <%= link_to_unless current_page.last?, @content, url, remote: remote %>
+</span>
+

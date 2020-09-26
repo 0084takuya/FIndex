@@ -8,7 +8,7 @@ ja:
         password: パスワード
         password_confirmation: パスワードの確認
         phone: 電話番号
-        user_name: 氏名
+        user_name: ユーザー名
         birthday: 生年月日
         notification: 通知
         invitation_code: 招待コード
