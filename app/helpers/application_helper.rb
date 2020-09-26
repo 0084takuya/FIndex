@@ -23,7 +23,7 @@ module ApplicationHelper
 
     def plus_minus_delta(delta)
         if delta > 0 
-            return content_tag(:p, delta.to_s, class: "plus-delta")
+            return content_tag(:p, "+" + delta.to_s, class: "plus-delta")
         elsif delta == 0
             return content_tag(:p, delta.to_s, class: "equal-delta")
         else

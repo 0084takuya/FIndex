@@ -65,4 +65,6 @@ gem 'kaminari'
 
 # Validator
 gem 'email_validator', '~> 1.6'
-gem 'telephone_number'
+
+# Env Variables
+gem 'dotenv-rails'

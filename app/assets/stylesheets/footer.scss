@@ -1,0 +1,15 @@
+@import "color";
+@import "font";
+
+footer {
+  background-color: $green;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h4 {
+    font-weight: normal;
+    color: $white;
+  }
+}

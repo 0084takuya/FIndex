@@ -34,6 +34,7 @@ main {
   display: flex;
   justify-content: center;
   margin: 40px 0;
+  min-height: calc(100vh - 300px);
 }
 
 main div {
@@ -41,7 +42,7 @@ main div {
 }
 
 #container {
-  padding: 0 5px;
+  padding: 0 15px;
   margin: 0 auto;
   max-width: 1280px;
   display: flex;

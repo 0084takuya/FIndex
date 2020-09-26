@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render :layout => 'single'
+    flash.now[:notice] = "ユーザ登録をしましょう"
   end
 
   def edit
@@ -38,26 +38,27 @@ class UsersController < ApplicationController
     invalid_flag = false
 
     if params[:user][:agree_term_of_service] == "0" then
-      flash[:notice] = "利用規約に同意してください。"
+      flash.now[:notice] = "利用規約に同意してください。"
       invalid_flag = true
     end
 
     begin
       if !@user.save
-        flash[:notice] = "登録に失敗しました。"
+        flash.now[:notice] = "登録に失敗しました。"
         invalid_flag = true
       end
     rescue ActiveRecord::RecordNotUnique
-      flash[:notice] = "登録に失敗しました。"
+      flash.now[:notice] = "登録に失敗しました。"
       invalid_flag = true
     end
 
     if invalid_flag
-      render :new, :layout => 'single'
+      puts @user.errors.full_messages
+      render :new
       return
     else 
-      flash[:notice] = "登録完了しました！"
-      session[:user_id] = @user.id
+      flash.now[:notice] = "登録完了しました！"
+      log_in(@user)
       redirect_to @user
     end
   end

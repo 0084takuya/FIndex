@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :email, email: { allow_blank: true, uniqueness: { case_sensitive: false } }, presence: { message: :blank }
   validates :password, presence: true, length: { minimum: 6, message: :too_short }
   validates :password_confirmation, presence: true, length: { minimum: 6, message: :too_short }
-  validates :phone, presence: true # telephone_number: {country: :ja, types: [:fixed_line, :mobile]}
+  validates :phone, presence: true, format: { with: /(?:\d{10}|\d{3}-\d{3}-\d{4}|\d{2}-\d{4}-\d{4}|\d{3}-\d{4}-\d{4})/ }
   validates :user_name, presence: true
   validates :birthday_year, presence: true
   validates :birthday_month, presence: true

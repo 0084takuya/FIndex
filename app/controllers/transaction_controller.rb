@@ -6,15 +6,16 @@ class TransactionController < ApplicationController
 
     if amount <= 0 
       invalid_flag = true
-      flash[:notice] = "購入株数が不正です。"  
+      flash[:notice] = "購入株数が不正です"  
     end
 
     if current_user.point < player.buy_price * amount
       invalid_flag = true
-      flash[:notice] = "所持コインが足りません。"
+      flash[:notice] = "所持コインが足りません"
     end
 
     if invalid_flag
+      flash[:notice_title] = "購入に失敗しました"
       redirect_to player
       return
     end
@@ -55,7 +56,8 @@ class TransactionController < ApplicationController
     player.create_change_history if has_changed_flag
 
     if buy_history.invalid? || user_stock.invalid?
-      flash[:notice] = "購入に失敗しました。"  
+      flash[:notice_title] = "購入に失敗しました"  
+      flash[:notice] = "エラーが発生しました"  
       redirect_to player
       return
     end
@@ -76,22 +78,26 @@ class TransactionController < ApplicationController
 
     sell_amount = params[:amount].to_i
     
+    if stock.nil?
+      invalid_flag = true
+      flash[:notice] = "株式を保持していません"
+      flash[:notice_title] = "売却に失敗しました"
+      redirect_to player
+      return
+    end
+
     if stock.amount < sell_amount
       invalid_flag = true
-      flash[:notice] = "売却株数が大きすぎます。"
+      flash[:notice] = "売却株数が大きすぎます"
     end
 
     if sell_amount <= 0
       invalid_flag = true
-      flash[:notice] = "売却株数が不正です。"
-    end
-
-    if stock.nil?
-      invalid_flag = true
-      flash[:notice] = "株式を保持していません。"
+      flash[:notice] = "売却株数が不正です"
     end
 
     if invalid_flag
+      flash[:notice_title] = "売却に失敗しました"
       redirect_to player
       return
     end
@@ -125,7 +131,8 @@ class TransactionController < ApplicationController
     )
 
     if !sell_history.save 
-      flash[:notice] = "売却に失敗しました。"
+      flash[:notice_title] = "売却に失敗しました"
+      flash[:notice] = "エラーが発生しました"
       redirect_to player
       return
     end

@@ -24,12 +24,6 @@ Kaminariの設定
 
 
 9/26
-フッター
-ログインしていないときの表示
-Noticeの文面をわかりやすく
-Long Notificication
-Rails_adminのユーザ、パスワード環境変数
-電話番号のValidation
 DIVIDEND
 
 
@@ -74,6 +68,12 @@ Dividendのアイテムの配置
 Enterでフォーム送信しないように
 小数点以下を保持する
 メールアドレスをunique: true
+フッター
+ログインしていないときの表示
+Noticeの文面をわかりやすく
+Long Notificication
+Rails_adminのユーザ、パスワード環境変数
+電話番号のValidation
 
 
 

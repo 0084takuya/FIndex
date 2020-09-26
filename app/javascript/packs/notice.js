@@ -1,4 +1,3 @@
 $(function () {
-  $("#notice").fadeIn(500);
-  setTimeout("$('#notice').fadeOut(1000)", 1500);
+  setTimeout("$('#notice').fadeOut(500)", 3000);
 });

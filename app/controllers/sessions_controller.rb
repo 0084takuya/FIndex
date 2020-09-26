@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
-    render :layout => 'single'
   end
 
   def create
@@ -12,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       flash.now[:notice] = "ログインに失敗しました。"
-      render 'new', :layout => 'single'
+      render 'new'
     end
   end
 
