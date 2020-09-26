@@ -1,19 +1,23 @@
-LAST:
-画像の見た目
-ルーティングの確認
-404ページ
-スマホでの見た目チェック
-
-EXTRA:
-チーム検索
-Chartの範囲を変えられるように
-ChartのlabelをRuby側で作る
-Chartのホバー時の表示
+AFTER:
+リファクタリング
+ソート項目の列挙型
+buy_history, sell_historyのuser, playerをreference化
+確認用confirmの見た目
 
 9/26
 DIVIDEND
 配当金システム
 招待コード
+ルーティングの確認
+404ページ
+
+9/27
+チーム検索
+Chartの範囲を変えられるように
+ChartのlabelをRuby側で作る
+Chartのホバー時の表示
+画像の見た目
+スマホでの見た目チェック
 
 
 済:
@@ -68,10 +72,3 @@ Rails_adminのユーザ、パスワード環境変数
 
 
 kill -9 $(lsof -i tcp:3000 -t)
-
-
-AFTER:
-リファクタリング
-ソート項目の列挙型
-buy_history, sell_historyのuser, playerをreference化
-確認用confirmの見た目
