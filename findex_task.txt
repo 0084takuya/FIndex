@@ -7,11 +7,13 @@ buy_history, sell_historyのuser, playerをreference化
 
 PLUS:
 User Edit
-
-9/28
 Chartのホバー時の表示
 Chartの範囲を変えられるように
 ChartのlabelをRuby側で作る
+
+9/28
+スマホ用の表示
+・chartが消える
 
 
 済:
@@ -71,6 +73,9 @@ DIVIDEND
 スマホでの見た目チェック
 配当金システム
 検索バー
+・inputのみため
+・フォント
+・over-flow
 
 
 

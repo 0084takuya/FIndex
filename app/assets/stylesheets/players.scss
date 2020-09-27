@@ -89,6 +89,15 @@ $table-border: solid 1px $light-gray;
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
+
+      img {
+        width: 10px;
+        height: 10px;
+      }
+
+      select {
+        border: none;
+      }
     }
   }
 
@@ -322,7 +331,9 @@ $table-border: solid 1px $light-gray;
       .buy-button {
         width: 60px;
       }
+    }
 
+    td:nth-child(7) {
       img {
         display: none;
       }

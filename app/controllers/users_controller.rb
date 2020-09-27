@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    flash.now[:notice] = "ユーザ登録をしましょう"
+    flash.now[:notice] = "ユーザ登録をしましょう" if response.redirect?
   end
 
   def edit
@@ -38,17 +38,18 @@ class UsersController < ApplicationController
     invalid_flag = false
 
     if params[:user][:agree_term_of_service] == "0" then
-      flash.now[:notice] = "利用規約に同意してください。"
+      flash.now[:notice] = "利用規約に同意してください"
       invalid_flag = true
     end
 
     begin
       if !@user.save
-        flash.now[:notice] = "登録に失敗しました。"
+        flash.now[:notice] = "登録に失敗しました"
         invalid_flag = true
       end
     rescue ActiveRecord::RecordNotUnique
-      flash.now[:notice] = "登録に失敗しました。"
+      flash.now[:notice_title] = "登録に失敗しました"
+      flash.now[:notice] = "既に登録されています"
       invalid_flag = true
     end
 
@@ -68,7 +69,7 @@ class UsersController < ApplicationController
     @user = User.find_by(public_uid: params[:id])
     if current_user != @user
       flash[:notice_title] = "エラーが発生しました"
-      flash[:notice] = "不正なアクセスです。"
+      flash[:notice] = "不正なアクセスです"
       redirect_to :root
       return
     end
@@ -77,7 +78,7 @@ class UsersController < ApplicationController
   def processed_params
     attrs = user_params.to_h
     attrs[:birthday] = format_date(attrs[:birthday_year], attrs[:birthday_month], attrs[:birthday_day])
-    puts attrs
+    attrs[:last_login] = DateTime.now
     attrs
   end
 
