@@ -34,9 +34,10 @@ class UsersController < ApplicationController
   end
 
   def create
+    puts processed_params
     puts "create"
     @user = User.new(processed_params)
-    puts @user
+    puts processed_params
     invalid_flag = false
 
     if params[:user][:agree_term_of_service] == "0" then
@@ -56,7 +57,6 @@ class UsersController < ApplicationController
     end
 
     if invalid_flag
-      puts @user.errors.full_messages
       render :new
       return
     else 
