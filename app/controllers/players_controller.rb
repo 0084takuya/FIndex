@@ -2,6 +2,7 @@ class PlayersController < ApplicationController
   def index
     @sort = params[:sort]
     @team = params[:team]
+    @search = params[:search]
     @position = params[:position]
     
     case params[:sort]
@@ -27,6 +28,10 @@ class PlayersController < ApplicationController
 
     if @position.present?
       @players = @players.where(position: @position)
+    end
+
+    if @search.present?
+      @players = @players.search_columns(@search)
     end
   end
 

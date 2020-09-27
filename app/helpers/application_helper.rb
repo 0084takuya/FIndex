@@ -5,11 +5,6 @@ module ApplicationHelper
         title
     end
 
-    def format_date(year, month, day)
-        return Date.new(year.to_i, month.to_i, day.to_i) if Date.valid_date?(year.to_i, month.to_i, day.to_i)
-        return Date.new(1899, 12, 31)
-    end
-
     def player_image(image_name)
         return image_tag "system/person", class: "rounded-img" if image_name == "" 
         

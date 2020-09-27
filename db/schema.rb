@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_132228) do
+ActiveRecord::Schema.define(version: 2020_09_27_060247) do
 
   create_table "buy_histories", force: :cascade do |t|
     t.string "user_id", null: false
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2020_09_26_132228) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["player_id"], name: "index_change_histories_on_player_id"
+  end
+
+  create_table "dividends", force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.integer "amount", null: false
+    t.string "detail"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_dividends_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_132228) do
     t.string "invitation_code"
     t.integer "point", default: 0
     t.string "public_uid"
+    t.datetime "last_login"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["public_uid"], name: "index_users_on_public_uid", unique: true
   end

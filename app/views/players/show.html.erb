@@ -9,16 +9,15 @@
             <% if current_user %>
                 <% if !Watch.exists?(user_id: current_user.id, player_id: @player.id) %>
                     <%= link_to player_add_path(@player), method: :post, class: "watch-button" do %>
-                        <%= image_tag "system/phone" %>
+                        <%= image_tag "system/scope" %>
                     <% end %>
                 <% else %>
                     <%= link_to player_add_path(@player), method: :delete, class: "watch-button" do %>
-                        <%= image_tag "system/scope" %>
+                        <%= image_tag "system/scope_on" %>
                     <% end %>
                 <% end %>
-            <% else %>
-
             <% end %>
+            <p>直近24hの変動:</p><%= plus_minus_delta(@player.calc_delta) %>
         </div>
         <div>
             <%= link_to :new_user, class: "buy-button buy-modal-open" do %>
@@ -39,20 +38,20 @@
             <p><%= link_to @player.team, players_path(team: @player.team) %></p>
         </div>
         <div class="player-cell" id="player_cell_2">
-            <%= image_tag "system/team" %>
+            <%= image_tag "system/shoe" %>
             <p><%= link_to @player.position, players_path(team: @player.position) %></p>
         </div>
         <div class="player-cell" id="player_cell_3">
-            <%= image_tag "system/team" %>
-            <p><%= @player.age %></p>
+            <%= image_tag "system/cake" %>
+            <p><%= @player.age %>歳</p>
         </div>
         <div class="player-cell" id="player_cell_4">
-            <%= image_tag "system/team" %>
-            <p><%= @player.height %></p>
+            <%= image_tag "system/ruler" %>
+            <p><%= @player.height %>cm</p>
         </div>
         <div class="player-cell" id="player_cell_5">
-            <%= image_tag "system/team" %>
-            <p><%= @player.weight %></p>
+            <%= image_tag "system/weight" %>
+            <p><%= @player.weight %>kg</p>
         </div>
     </div>
 </div>

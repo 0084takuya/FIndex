@@ -10,6 +10,14 @@ class Player < ApplicationRecord
   scope :sell_asc, -> { order(sell_price: :asc) }
   scope :sell_desc, -> { order(sell_price: :desc) }
 
+  scope :search_columns, -> (params) do
+    where(<<-SQL, search_word: "%#{params}%")
+      name LIKE :search_word
+      OR team LIKE :search_word
+      OR position LIKE :search_word
+      SQL
+  end
+
   def calc_delta
     change_histories = ChangeHistory.where(player_id: self.id).order(created_at: :desc)
     change_histories.each do |history|

@@ -12,6 +12,9 @@
         <p><%= stock.player.sell_price %></p>
     </td>
     <td>
+        <p><%= stock.player.sell_price * stock.amount %></p>
+    </td>
+    <td>
         <p><%= plus_minus_delta(stock.player.calc_delta) %></p>
     </td>
     <td>

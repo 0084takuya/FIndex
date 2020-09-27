@@ -54,7 +54,7 @@ $table-border: solid 1px $light-gray;
 
   th:nth-child(2),
   td:nth-child(2) {
-    width: 35%;
+    width: 20%;
   }
 
   td:nth-child(2) {
@@ -74,16 +74,21 @@ $table-border: solid 1px $light-gray;
 
   th:nth-child(5),
   td:nth-child(5) {
+    width: 15%;
+  }
+
+  th:nth-child(6),
+  td:nth-child(6) {
     width: 10%;
   }
 
-  th:nth-child(6) {
+  th:nth-child(7) {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
   }
 
-  td:nth-child(6) {
+  td:nth-child(7) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,6 +155,7 @@ $table-border: solid 1px $light-gray;
 
     th:nth-child(3),
     td:nth-child(3) {
+      width: 100px;
     }
 
     th:nth-child(4),
@@ -164,23 +170,11 @@ $table-border: solid 1px $light-gray;
 
     th:nth-child(6),
     td:nth-child(6) {
-    }
-
-    th:nth-child(7),
-    td:nth-child(7) {
-      display: none;
-    }
-
-    th:nth-child(8) {
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-    }
-
-    td:nth-child(8) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      form {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
     }
 
     .sell-button {

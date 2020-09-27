@@ -76,10 +76,10 @@ $(function () {
       },
       layout: {
         padding: {
-          left: 20,
-          right: 10,
-          top: 20,
-          bottom: 10,
+          left: 10,
+          right: 0,
+          top: 10,
+          bottom: 0,
         },
       },
     },

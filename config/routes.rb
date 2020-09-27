@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'players#index'
 
-  resources :players do
+  resources :players, only: [:index, :show] do
     post 'add' => 'watch#create'
     delete '/add' => 'watch#destroy'
 
@@ -19,11 +19,7 @@ Rails.application.routes.draw do
   post   '/sell',   to: 'transaction#sell'
   post   '/buy',   to: 'transaction#buy'
 
-  resources :transaction do
-
-  end
-
-  resources :users do
+  resources :users, only: [:index, :create, :show, :new] do
     collection do
       get 'login'
       post 'signin'

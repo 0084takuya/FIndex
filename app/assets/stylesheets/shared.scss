@@ -20,6 +20,7 @@
 }
 
 .buy-button {
+  text-decoration: none;
   text-align: center;
   display: block;
   background-color: $off-blue;
@@ -61,7 +62,6 @@
 }
 
 .watch-button {
-  background-color: #ffffff;
   border: none;
   margin: 0 5px;
 

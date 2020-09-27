@@ -1,6 +1,15 @@
 <div class="header-pc">
     <div class="header-top">
-        <div>
+        <div class="header-logo">
+            <p>Football Index</p>
+        </div>
+        <div class="header-search-form">
+            <%= form_tag :players, method: :get, class: "search-form" do %>
+                <%= text_field_tag :search, "", class: "search-field", placeholder: "選手名、チーム名、ポジション..." %>
+                <%= button_tag type: :submit, class: "search-button" do %>
+                    <%= image_tag "system/search" %>
+                <% end %>
+            <% end %>
         </div>
         <div class="header-top-buttons">
             <% if logged_in? %>
@@ -24,7 +33,7 @@
         </nav>
         <% if logged_in? %>
             <div class="header-item border-left">
-                <%= image_tag "system/person" %>
+                <%= image_tag "system/white_person" %>
                 <%= link_to "マイページ", current_user %>
             </div>
         <% end %>
@@ -32,6 +41,9 @@
 </div>
 <div class="header-global">
     <div class="header-bar">
+        <div class="header-logo">
+            <p>Football Index</p>
+        </div>
         <div class="navToggle">
             <span></span><span></span><span></span><span></span>
         </div>
@@ -48,8 +60,21 @@
             </li>        
             <% if logged_in? %>
                 <li>
-                    <%= image_tag "system/person" %>
-                    <%= link_to "マイページ", user_path(session[:user_id]) %>
+                    <%= image_tag "system/white_person" %>
+                    <%= link_to "マイページ", current_user %>
+                </li>
+                <li>
+                    <%= image_tag "system/logout" %>
+                    <%= link_to "ログアウト", logout_path, method: :delete %>
+                </li>
+            <% else %>
+                <li>
+                    <%= image_tag "system/login" %>
+                    <%= link_to "ログイン", login_path %>
+                </li>
+                <li>
+                    <%= image_tag "system/register" %>
+                    <%= link_to "登録", :new_user %>
                 </li>
             <% end %>
         </ul>

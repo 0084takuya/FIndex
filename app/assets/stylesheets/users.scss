@@ -42,6 +42,7 @@ $table-border: solid 1px $light-gray;
 }
 
 .user-cell {
+  background-color: $white;
   border: $table-border;
   display: flex;
   align-items: center;

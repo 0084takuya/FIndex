@@ -84,6 +84,12 @@ $table-border: solid 1px $light-gray;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+
+    form {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
   }
 
   td:nth-child(7) {
@@ -161,7 +167,8 @@ $table-border: solid 1px $light-gray;
   display: flex;
   height: 60px;
   justify-content: space-between;
-  align-items: center;
+  padding-bottom: 5px;
+  align-items: flex-end;
   border-bottom: $table-border;
   width: 1fr;
 
@@ -170,16 +177,24 @@ $table-border: solid 1px $light-gray;
     font-weight: bold;
   }
 
-  button {
-    margin-left: 50px;
+  p {
+    font-size: $font-middle;
+    margin-left: 10px;
   }
 
   div {
     display: flex;
+    align-items: center;
 
     &:nth-child(2) {
       flex-direction: row-reverse;
     }
+  }
+
+  a {
+    display: block;
+    height: 100%;
+    margin-left: 20px;
   }
 }
 
@@ -192,6 +207,7 @@ $table-border: solid 1px $light-gray;
 }
 
 .player-cell {
+  background-color: $white;
   border: $table-border;
   display: flex;
   width: 90%;
@@ -299,7 +315,15 @@ $table-border: solid 1px $light-gray;
 
     th:nth-child(7),
     td:nth-child(7) {
-      button {
+      .sell-button {
+        width: 60px;
+      }
+
+      .buy-button {
+        width: 60px;
+      }
+
+      img {
         display: none;
       }
     }
@@ -338,6 +362,10 @@ $table-border: solid 1px $light-gray;
         justify-content: space-evenly;
         width: 100%;
       }
+    }
+
+    p {
+      display: none;
     }
   }
 
