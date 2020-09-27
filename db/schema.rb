@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_060247) do
+ActiveRecord::Schema.define(version: 2020_09_27_140212) do
 
   create_table "buy_histories", force: :cascade do |t|
     t.string "user_id", null: false
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_060247) do
     t.string "public_uid"
     t.datetime "last_login"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["public_uid"], name: "index_users_on_public_uid", unique: true
   end
 

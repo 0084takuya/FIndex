@@ -14,10 +14,10 @@ class User < ApplicationRecord
   has_many :sell_histories
   has_many :user_stocks
 
-  validates :email, email: { allow_blank: true, uniqueness: { case_sensitive: false } }, presence: { message: :blank }
+  validates :email, uniqueness: { message: :taken }, email: { allow_blank: true, uniqueness: { case_sensitive: false } }, presence: { message: :blank }
   validates :password, presence: true, length: { minimum: 6, message: :too_short }
   validates :password_confirmation, presence: true, length: { minimum: 6, message: :too_short }
-  validates :phone, presence: true, format: { with: /(?:\d{10}|\d{3}-\d{3}-\d{4}|\d{2}-\d{4}-\d{4}|\d{3}-\d{4}-\d{4})/ }
+  validates :phone, uniqueness: { message: :taken }, presence: true, format: { with: /(?:\d{10}|\d{3}-\d{3}-\d{4}|\d{2}-\d{4}-\d{4}|\d{3}-\d{4}-\d{4})/ }
   validates :user_name, presence: true
   validates :birthday_year, presence: true
   validates :birthday_month, presence: true

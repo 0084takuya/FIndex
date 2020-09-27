@@ -11,9 +11,6 @@ Chartのホバー時の表示
 Chartの範囲を変えられるように
 ChartのlabelをRuby側で作る
 
-9/28
-Phoneをユニークに
-
 
 
 済:
@@ -80,6 +77,7 @@ DIVIDEND
 ・余白
 ・overflow
 ・chartが消える
+Phoneをユニークに
 
 
 

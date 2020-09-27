@@ -27,6 +27,7 @@ ja:
             password_confirmation:
               confirmation: がパスワードと一致していません。
       messages:
+        taken: は既に登録されています
         too_short: が短すぎます
         blank: が空欄です
         invalid: の入力が不正です

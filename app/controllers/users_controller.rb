@@ -34,10 +34,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    puts processed_params
-    puts "create"
     @user = User.new(processed_params)
-    puts processed_params
     invalid_flag = false
 
     if params[:user][:agree_term_of_service] == "0" then
@@ -81,6 +78,7 @@ class UsersController < ApplicationController
     attrs = user_params.to_h
     attrs[:birthday] = format_date(attrs[:birthday_year], attrs[:birthday_month], attrs[:birthday_day])
     attrs[:last_login] = DateTime.now
+    attrs[:phone] = attrs[:phone].delete("-")
     attrs
   end
 
