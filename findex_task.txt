@@ -12,8 +12,7 @@ Chartの範囲を変えられるように
 ChartのlabelをRuby側で作る
 
 9/28
-スマホ用の表示
-・chartが消える
+Phoneをユニークに
 
 
 
@@ -80,6 +79,7 @@ DIVIDEND
 ・SellBuyButtonのTextAlign
 ・余白
 ・overflow
+・chartが消える
 
 
 

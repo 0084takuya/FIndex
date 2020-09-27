@@ -19,12 +19,7 @@ Rails.application.routes.draw do
   post   '/sell',   to: 'transaction#sell'
   post   '/buy',   to: 'transaction#buy'
 
-  resources :users, only: [:index, :create, :show, :new] do
-    collection do
-      get 'login'
-      post 'signin'
-    end
-  end 
+  resources :users, only: [:index, :create, :show, :new]
 
   get '*path', controller: 'application', action: 'render_404'
 end

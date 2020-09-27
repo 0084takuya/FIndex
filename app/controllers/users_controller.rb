@@ -34,7 +34,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    puts "create"
     @user = User.new(processed_params)
+    puts @user
     invalid_flag = false
 
     if params[:user][:agree_term_of_service] == "0" then
