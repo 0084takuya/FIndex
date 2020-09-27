@@ -48,6 +48,7 @@ main div {
   padding: 0 15px;
   margin: 0 auto;
   max-width: 1280px;
+  overflow-x: hidden;
   display: flex;
   justify-content: space-between;
 }
@@ -77,6 +78,7 @@ select {
   }
 
   #container {
+    overflow-x: hidden;
     padding: 0 5px;
   }
 }

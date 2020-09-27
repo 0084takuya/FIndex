@@ -97,11 +97,11 @@ $table-border: solid 1px $light-gray;
 
 @media screen and (max-width: 480px) {
   .user-player-table {
+    margin-bottom: 20px;
     width: 100%;
     text-align: left;
     background-color: $white;
     border-collapse: collapse;
-    margin-bottom: 50px;
 
     tr {
       font-size: $font-middle;

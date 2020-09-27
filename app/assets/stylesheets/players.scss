@@ -341,8 +341,9 @@ $table-border: solid 1px $light-gray;
   }
 
   .player-info {
-    grid-template-rows: 110px 200px;
+    grid-template-rows: 110px 160px;
     grid-template-columns: 110px 1fr;
+    padding: 5px;
   }
 
   .player-img {
@@ -370,8 +371,12 @@ $table-border: solid 1px $light-gray;
         grid-column: 1 / 2;
         grid-row: 2 / 3;
         display: flex;
-        justify-content: space-evenly;
         width: 100%;
+
+        a {
+          margin-left: 0px;
+          margin-right: 10px;
+        }
       }
     }
 
@@ -381,10 +386,11 @@ $table-border: solid 1px $light-gray;
   }
 
   .player-detail {
+    margin-top: 10px;
     grid-row: 2 / 3;
     grid-column: 1 / 3;
     display: grid;
-    grid-template-rows: 70px 70px 70px;
+    grid-template-rows: 50px 50px 50px;
     grid-template-columns: 1fr 1fr;
   }
 
@@ -415,5 +421,10 @@ $table-border: solid 1px $light-gray;
   #player_cell_5 {
     grid-row: 3 / 4;
     grid-column: 1 / 2;
+  }
+
+  #chart_container {
+    margin-top: 20px;
+    margin-bottom: 0;
   }
 }

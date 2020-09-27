@@ -30,6 +30,7 @@ class User < ApplicationRecord
 
   private
   def date_before_limit
+    return if birthday.nil?
     errors.add(:birthday, :invalid) if birthday < Date.new(1900, 1, 1)
   end
 end
