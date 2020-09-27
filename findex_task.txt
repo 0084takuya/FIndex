@@ -14,6 +14,8 @@ ChartのlabelをRuby側で作る
 9/28
 スマホ用の表示
 ・chartが消える
+・SellBuyButtonのTextAlign
+・余白
 
 
 済:
