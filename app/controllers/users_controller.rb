@@ -79,6 +79,7 @@ class UsersController < ApplicationController
     attrs[:birthday] = format_date(attrs[:birthday_year], attrs[:birthday_month], attrs[:birthday_day])
     attrs[:last_login] = DateTime.now
     attrs[:phone] = attrs[:phone].delete("-")
+    attrs[:point] = 10000
     attrs
   end
 

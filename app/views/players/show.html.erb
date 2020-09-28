@@ -35,7 +35,7 @@
         </div>
         <div class="player-cell" id="player_cell_2">
             <%= image_tag "system/shoe" %>
-            <p><%= link_to @player.position, players_path(team: @player.position) %></p>
+            <p><%= link_to @player.position, players_path(position: @player.position) %></p>
         </div>
         <div class="player-cell" id="player_cell_3">
             <%= image_tag "system/cake" %>
