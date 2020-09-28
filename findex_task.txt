@@ -3,14 +3,16 @@ AFTER:
 ソート項目の列挙型
 buy_history, sell_historyのuser, playerをreference化
 確認用confirmの見た目
-招待コード
 
 PLUS:
 User Edit
 Chartのホバー時の表示
 Chartの範囲を変えられるように
 ChartのlabelをRuby側で作る
+購入ボタンを光らせる
 
+9/28~
+招待コード
 
 
 済:
@@ -78,6 +80,7 @@ DIVIDEND
 ・overflow
 ・chartが消える
 Phoneをユニークに
+Windowsでのチェック
 
 
 
