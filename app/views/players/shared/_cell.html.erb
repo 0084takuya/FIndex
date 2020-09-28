@@ -31,15 +31,11 @@
         <% else %>
 
         <% end %>
-        <%= link_to player do %>
-            <p class="buy-button">
-                <span><%= player.buy_price %></span><br />購入
-            </p>
+        <%= link_to player, class: "buy-button" do %>
+            <p><span><%= player.buy_price %></span><br />購入</p>
         <% end %>
-        <%= link_to player do %>
-            <p class="sell-button">
-                <span><%= player.sell_price %></span><br />売却
-            </p>
+        <%= link_to player, class: "sell-button" do %>
+            <p><span><%= player.sell_price %></span><br />売却</p>
         <% end %>
     </td>
 </tr>
