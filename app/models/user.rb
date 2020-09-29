@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :buy_histories
   has_many :sell_histories
   has_many :user_stocks
+  has_many :bonus_points
 
   validates :email, uniqueness: { message: :taken }, email: { allow_blank: true, uniqueness: { case_sensitive: false } }, presence: { message: :blank }
   validates :password, presence: true, length: { minimum: 6, message: :too_short }

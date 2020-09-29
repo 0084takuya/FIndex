@@ -9,6 +9,8 @@ ja:
       user_stock: ユーザーの持ち株
       watch: 監視
       dividend: 配当金
+      invitation: 招待コード
+      bonus_point: ボーナスポイント
     attributes:
       user:
         email: メールアドレス

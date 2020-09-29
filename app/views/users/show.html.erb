@@ -1,7 +1,7 @@
 <div class="user-info">
     <div class="user-header">
         <h2><%= @user.user_name %></h2>
-        <p>所持コイン: <span><%= @user.point %></span></p>
+        <p>所持コイン:　　<span><%= user_total_point(@user) %>（BP: <%= user_bonus_point(@user) %>）</span></p>
     </div>
     <div class="user-cell" id="user_cell_1">
         <%= image_tag "system/mail" %>
@@ -14,6 +14,10 @@
     <div class="user-cell" id="user_cell_3">
         <%= image_tag "system/phone" %>
         <p><%= @user.phone %></p>
+    </div>
+    <div class="user-cell" id="user_cell_4">
+        <p>招待コード:　</p>
+        <p><%= invitation_code(@user) %></p>
     </div>
 </div>
 <table class="user-player-table">

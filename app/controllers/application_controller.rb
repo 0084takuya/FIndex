@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   include PlayersHelper
+  include ApplicationHelper
 
   unless Rails.env.development?
     rescue_from ActiveRecord::RecordNotFound, with: :render_404
@@ -21,7 +22,23 @@ class ApplicationController < ActionController::Base
   end
 
   def format_date(year, month, day)
-      return Date.new(year.to_i, month.to_i, day.to_i) if Date.valid_date?(year.to_i, month.to_i, day.to_i)
-      return Date.new(1899, 12, 31)
+    return Date.new(year.to_i, month.to_i, day.to_i) if Date.valid_date?(year.to_i, month.to_i, day.to_i)
+    return Date.new(1899, 12, 31)
+  end
+
+  def create_bonus_point(user_id, amount)
+    bonus_point = BonusPoint.new(
+      user_id: user_id,
+      amount: amount
+    )
+    bonus_point.save
+  end 
+
+  def create_invitation(user_id, amount)
+    invitation = Invitation.new(
+      owner_id: user_id,
+      amount: amount
+    )
+    invitation.save
   end
 end

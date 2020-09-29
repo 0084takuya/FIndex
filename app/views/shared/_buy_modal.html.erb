@@ -21,7 +21,7 @@
                 <p>支払い総額</p>
                 <p id="buy_total_amount">0</p>
             </div>
-            <p class="small-green-text">保有ポイント: <%= current_user.point %></p>
+            <p class="small-green-text">保有ポイント: <%= user_total_point(current_user) %></p>
             <%= hidden_field_tag "player_id", @player.id %>
             <%= submit_tag "購入する", class: "large-button blue-button", data: { confirm: '購入を確定しますか？' } %>
         <% end %>

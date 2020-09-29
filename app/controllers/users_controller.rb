@@ -36,15 +36,35 @@ class UsersController < ApplicationController
   def create
     @user = User.new(processed_params)
     invalid_flag = false
+    owner_user = nil
+    
+    if processed_params[:invitation_code] != ""
+      invitation = Invitation.find_by(public_uid: processed_params[:invitation_code])
 
+      if invitation.nil?
+        flash.now[:notice] = "招待コードが正しくありません"
+        invalid_flag = true
+      else
+        @user.point += invitation.amount
+        owner_user = User.find_by(id: invitation.owner_id)
+        owner_user.point += invitation.amount
+      end
+    end
+    
     if params[:user][:agree_term_of_service] == "0" then
       flash.now[:notice] = "利用規約に同意してください"
       invalid_flag = true
     end
+  
+    if invalid_flag 
+      flash.now[:notice_title] = "登録に失敗しました"
+      render :new
+      return
+    end
 
     begin
       if !@user.save
-        flash.now[:notice] = "登録に失敗しました"
+        flash.now[:notice_title] = "登録に失敗しました"
         invalid_flag = true
       end
     rescue ActiveRecord::RecordNotUnique
@@ -56,9 +76,13 @@ class UsersController < ApplicationController
     if invalid_flag
       render :new
       return
-    else 
-      flash.now[:notice] = "登録完了しました！"
-      log_in(@user)
+    else
+      owner_user.save validate: false if owner_user.present?
+      flash[:notice_title] = "登録完了しました！"
+      flash[:notice] = "BPが1000P与えられました"
+      create_invitation(@user.id, 500)
+      create_bonus_point(@user.id, 1000)
+      log_in @user
       redirect_to @user
     end
   end

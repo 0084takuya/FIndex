@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_140212) do
+ActiveRecord::Schema.define(version: 2020_09_29_092800) do
+
+  create_table "bonus_points", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "amount", null: false
+    t.datetime "expire_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bonus_points_on_user_id"
+  end
 
   create_table "buy_histories", force: :cascade do |t|
     t.string "user_id", null: false
@@ -36,6 +45,15 @@ ActiveRecord::Schema.define(version: 2020_09_27_140212) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["player_id"], name: "index_dividends_on_player_id"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.integer "amount", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "owner_id", null: false
+    t.string "public_uid"
+    t.index ["public_uid"], name: "index_invitations_on_public_uid", unique: true
   end
 
   create_table "players", force: :cascade do |t|

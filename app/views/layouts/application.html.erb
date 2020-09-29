@@ -15,12 +15,14 @@
       <%= render "shared/header" %>
     </header>
     <div id="container">
-      <% if flash[:notice] %>
+      <% if flash[:notice] or flash[:notice_title] %>
         <div id="notice">
           <% if flash[:notice_title] %>
             <h3><%= flash[:notice_title] %></h3>
           <% end %>
-          <p><%= flash[:notice] %></p>
+          <% if flash[:notice] %>
+            <p><%= flash[:notice] %></p>
+          <% end %>
         </div>
       <% end %>
       <main>

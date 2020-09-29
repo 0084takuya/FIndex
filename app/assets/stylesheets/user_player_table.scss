@@ -86,6 +86,17 @@ $table-border: solid 1px $light-gray;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+
+    form {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+
+      img {
+        width: 10px;
+        height: 10px;
+      }
+    }
   }
 
   td:nth-child(7) {

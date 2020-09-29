@@ -25,4 +25,23 @@ module ApplicationHelper
             return content_tag(:p, delta.to_s, class: "minus-delta")
         end
     end
+
+    def user_bonus_point(user)
+        bonus_points = BonusPoint.where(user_id: user.id)
+        
+        if bonus_points.nil?
+            return 0
+        end
+
+        point = 0
+        bonus_points.each do |bonus_point| 
+            point += bonus_point.amount
+        end
+
+        return point
+    end
+
+    def user_total_point(user)
+        user.point + user_bonus_point(user)
+    end
 end
