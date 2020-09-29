@@ -30,6 +30,7 @@
   transform: translate(-50%, -50%);
   padding: 20px 20px 40px;
   width: 60%;
+  z-index: 100;
 }
 
 .modal-content-item {
@@ -116,6 +117,50 @@
 
 @media screen and (max-width: 480px) {
   .modal-content {
+    padding: 10px;
     width: 90%;
+  }
+
+  .modal-content-item {
+    max-width: 350px;
+    margin: 10px auto;
+    padding: 5px 10px;
+
+    h3 {
+      width: 100%;
+      padding: 0 10px;
+      height: 50px;
+      line-height: 50px;
+      text-align: left;
+    }
+
+    p {
+      font-size: $font-middle;
+    }
+
+    p:nth-child(2) {
+      font-size: $font-title;
+      font-weight: bold;
+    }
+
+    img {
+      width: 50px;
+      padding: 5px;
+      height: 50px;
+    }
+  }
+
+  .large-button {
+    margin: 20px auto 10px;
+  }
+
+  .modal-close {
+    img {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+    }
   }
 }

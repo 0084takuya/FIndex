@@ -4,21 +4,15 @@
         <p>選手名</p>
     </th>
     <th>
-        <p>所有株数</p>
+        <p>株数</p>
     </th>
     <th>
         <p>現在の売値</p>
     </th>
     <th>
-        <p>総売却額</p>
+        <p>売却額</p>
     </th>
     <th>
         <p>24h</p>
-    </th>
-    <th>
-        <%= form_tag :user, method: :get, remote: true, class: "sort-button" do %>
-            <%= image_tag "system/down" %>
-            <%= select_tag "sort", options_for_select([ "買値昇順", "買値降順", "売値昇順", "売値降順", "全て" ], @sort), :onchange => "this.form.submit();" %>
-        <% end %>
     </th>
 </tr>

@@ -33,3 +33,9 @@
     font-size: $font-middle;
   }
 }
+
+@media screen and (max-width: 480px) {
+  #notice {
+    bottom: 25px;
+  }
+}
