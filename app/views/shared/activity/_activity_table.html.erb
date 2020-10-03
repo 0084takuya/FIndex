@@ -2,10 +2,10 @@
     <div class="table-header">
         <p>最近の動向</p>
     </div>
-    <% transactions = recent_transaction %>
-    <% if transactions.present? %>
-        <% recent_transaction.each do |transaction| %>
-            <%= render partial: "shared/activity/activity_cell", locals: { transaction: transaction } %>
+    <% buy_histories = recent_buy_histories %>
+    <% if buy_histories.present? %>
+        <% buy_histories.each do |buy_history| %>
+            <%= render partial: "shared/activity/activity_cell", locals: { buy_history: buy_history } %>
         <% end %>
     <% else %>
         <%= render "shared/no_data" %>
