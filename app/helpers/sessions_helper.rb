@@ -20,8 +20,6 @@ module SessionsHelper
       dividends = Dividend.where(created_at: user.last_login .. DateTime.now).where(player_id: user_stocks_player_ids)
 
       dividends.each do |dividend|
-        continue if dividend.player.nil?
-        
         stock = user_stocks.find_by(user_id: user.id, player_id: dividend.player_id)
 
         if stock.nil?

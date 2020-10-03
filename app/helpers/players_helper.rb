@@ -6,7 +6,6 @@ module PlayersHelper
   def watch_list_to_players(watch_list)
     player_ids = []
     watch_list.each do |watch|
-      continue if watch.player_id.nil?
       player_ids.push(watch.player_id)
     end
     Player.where(id: player_ids)
