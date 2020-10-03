@@ -1,17 +1,19 @@
-<tr onclick='window.location="<%= '/players/' + sell.player_id.to_s %>"' role="link">
-    <td>
-        <%= player_image(sell.player.image_name) %>
-    </td>
-    <td>
-        <p><%= sell.player.name %></p>
-    </td>
-    <td>
-        <p><%= sell.amount %></p>
-    </td>
-    <td>
-        <p><%= sell.sell_price %></p>
-    </td>
-    <td>
-        <p><%= sell.sell_price * sell.amount %></p>
-    </td>
-</tr>
+<% if sell.player.present? %>
+    <tr onclick='window.location="<%= '/players/' + sell.player_id.to_s %>"' role="link">
+        <td>
+            <%= player_image(sell.player.image_name) %>
+        </td>
+        <td>
+            <p><%= sell.player.name %></p>
+        </td>
+        <td>
+            <p><%= sell.amount %></p>
+        </td>
+        <td>
+            <p><%= sell.sell_price %></p>
+        </td>
+        <td>
+            <p><%= sell.sell_price * sell.amount %></p>
+        </td>
+    </tr>
+<% end %>

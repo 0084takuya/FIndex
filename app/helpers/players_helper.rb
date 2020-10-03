@@ -50,13 +50,7 @@ module PlayersHelper
   end
 
   def recent_buy_histories
-    buy_histories = BuyHistory.all.order(created_at: :desc).limit(10)
-    result = []
-    buy_histories.each do |buy_history|  
-      result.push(buy_history) if buy_history.present?
-      break if result.count == 5
-    end
-    result
+    BuyHistory.all.order(created_at: :desc).limit(5)
   end
 
 end

@@ -1,12 +1,14 @@
-<tr onclick='window.location="<%= '/players/' + transaction.player_id.to_s %>"' role="link">
-    <td>
-        <%= player_image(transaction.player.image_name) %>
-    </td>
-    <td>
-        <p class="buy-user"><%= transaction.user.user_name %>さんが購入</p>
-        <p class="buy-info"><%= transaction.player.name %> x <%= transaction.amount %></p>
-    </td>
-    <td>
-        <p class="buy-cost"><%= transaction.amount * transaction.buy_price %></p>
-    </td>
-</tr>
+<% if buy_history.player.present? and buy_history.user.present? %>
+    <tr onclick='window.location="<%= '/players/' + buy_history.player_id.to_s %>"' role="link">
+        <td>
+            <%= player_image(buy_history.player.image_name) %>
+        </td>
+        <td>
+            <p class="buy-user"><%= buy_history.user.user_name %>さんが購入</p>
+            <p class="buy-info"><%= buy_history.player.name %> x <%= buy_history.amount %></p>
+        </td>
+        <td>
+            <p class="buy-cost"><%= buy_history.amount * buy_history.buy_price %></p>
+        </td>
+    </tr>
+<% end %>

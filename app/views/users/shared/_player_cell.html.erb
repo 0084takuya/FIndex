@@ -1,20 +1,22 @@
-<tr onclick='window.location="<%= '/players/' + stock.player_id.to_s %>"' role="link">   
-    <td>
-        <%= player_image(stock.player.image_name) %>
-    </td>
-    <td>
-        <p><%= stock.player.name %></p>
-    </td>
-    <td>
-        <p><%= stock.amount %></p>
-    </td>
-    <td>
-        <p><%= stock.player.sell_price %></p>
-    </td>
-    <td>
-        <p><%= stock.player.sell_price * stock.amount %></p>
-    </td>
-    <td>
-        <p><%= plus_minus_delta(stock.player.calc_delta) %></p>
-    </td>
-</tr>
+<% if stock.player.present? %>
+    <tr onclick='window.location="<%= '/players/' + stock.player_id.to_s %>"' role="link">   
+        <td>
+            <%= player_image(stock.player.image_name) %>
+        </td>
+        <td>
+            <p><%= stock.player.name %></p>
+        </td>
+        <td>
+            <p><%= stock.amount %></p>
+        </td>
+        <td>
+            <p><%= stock.player.sell_price %></p>
+        </td>
+        <td>
+            <p><%= stock.player.sell_price * stock.amount %></p>
+        </td>
+        <td>
+            <p><%= plus_minus_delta(stock.player.calc_delta) %></p>
+        </td>
+    </tr>
+<% end %>
