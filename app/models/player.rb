@@ -18,6 +18,17 @@ class Player < ApplicationRecord
       SQL
   end
 
+  validate :stock_amount
+
+  def stock_amount 
+    if border_stock <= 0 
+      errors.add(:border_stock, "border_stockには正の値を入れてください。基準値100")
+    end
+    if remaining_stock < 0 or remaining_stock > 1000
+      errors.add(:remaining_stock, "remaining_stocknには0以上1000以下の値を入れてください。基準値100")
+    end
+  end
+
   def calc_delta
     change_histories = ChangeHistory.where(player_id: self.id).order(created_at: :desc)
     change_histories.each do |history|

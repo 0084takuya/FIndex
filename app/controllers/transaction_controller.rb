@@ -27,7 +27,7 @@ class TransactionController < ApplicationController
       end
     end
 
-    if player.border_stock == 0
+    if player.border_stock <= 0
       invalid_flag = true
       flash[:notice] = "選手データに不正があります"
     end
@@ -130,11 +130,11 @@ class TransactionController < ApplicationController
       flash[:notice] = "売却株数が不正です"
     end
 
-    if player.border_stock == 0
+    if player.border_stock <= 0
       invalid_flag = true
       flash[:notice] = "選手データに不正があります"
     end
-    
+
     if invalid_flag
       flash[:notice_title] = "売却に失敗しました"
       redirect_to player
