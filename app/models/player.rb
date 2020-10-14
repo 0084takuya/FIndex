@@ -19,6 +19,7 @@ class Player < ApplicationRecord
   end
 
   validate :stock_amount
+  after_create :create_change_history
 
   def stock_amount 
     if border_stock <= 0 

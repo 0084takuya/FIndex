@@ -4,7 +4,7 @@ module UsersHelper
 		if invitation.present?
 			return invitation.public_uid.to_s
 		else
-			return "登録されていません。"
+			return "登録されていません"
 		end
 	end
 end
