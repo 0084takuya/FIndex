@@ -1,0 +1,22 @@
+<% if buy.player.present? %>
+    <tr onclick='window.location="<%= '/players/' + buy.player_id.to_s %>"' role="link">
+        <td>
+            <%= player_image(buy.player.image_name) %>
+        </td>
+        <td>
+            <p><%= buy.player.name %></p>
+        </td>
+        <td>
+            <p><%= buy.amount %></p>
+        </td>
+        <td>
+            <p><%= buy.buy_price %></p>
+        </td>
+        <td>
+            <p><%= buy.buy_price * buy.amount %></p>
+        </td>
+        <td>
+            <p><%= l buy.created_at %></p>
+        </td>
+    </tr>
+<% end %>

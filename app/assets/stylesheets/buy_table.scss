@@ -3,7 +3,7 @@
 
 $table-border: solid 1px $light-gray;
 
-.user-purchase-table {
+.user-buy-table {
   width: 100%;
   text-align: left;
   background-color: $white;
@@ -79,7 +79,7 @@ $table-border: solid 1px $light-gray;
 }
 
 @media screen and (max-width: 480px) {
-  .user-purchase-table {
+  .user-buy-table {
     width: 100%;
     text-align: left;
     background-color: $white;

@@ -49,3 +49,18 @@
     <% end %>
 </table>
 <%= paginate @sell_histories, :param_name => 'user_purchase_page'  %>
+
+<table class="user-buy-table">
+    <div class="table-header">
+        <p>購入履歴</p>
+    </div>
+    <% if @buy_histories.count > 0 %>
+        <%= render "users/shared/buy_header" %>
+        <% @buy_histories.each do |buy| %>
+            <%= render partial: "users/shared/buy_cell", locals: { buy: buy } %>
+        <% end %>
+    <% else %>
+        <%= render "shared/no_data" %>
+    <% end %>
+</table>
+<%= paginate @buy_histories, :param_name => 'user_buy_page'  %>

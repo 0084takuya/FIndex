@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
     @sell_histories = SellHistory.where(user_id: @user.id).page(params[:user_purchase_page]).per(5).order(created_at: :desc)
     @user_stock = UserStock.where(user_id: @user.id).page(params[:user_stock_page]).per(10)
+    @buy_histories = BuyHistory.where(user_id: @user.id).page(params[:user_buy_page]).per(5).order(created_at: :desc)
   end
 
   def new
