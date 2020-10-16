@@ -248,6 +248,40 @@ $table-border: solid 1px $light-gray;
   }
 }
 
+.chart-menu {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  padding: 20px 20px;
+  background-color: $chart-black;
+}
+
+.chart-menu-item {
+  box-sizing: content-box;
+  width: 20%;
+  height: 40px;
+  border: solid 1px $gray;
+  background-color: rgba(56, 66, 60, 1);
+
+  p {
+    font-weight: 300;
+    font-size: $font-middle;
+    width: 100%;
+    height: 100%;
+    color: $light-gray;
+    line-height: 40px;
+    text-align: center;
+  }
+}
+
+.chart-menu-item-selected {
+  border: solid 1px $high-green;
+
+  p {
+    color: $high-green;
+  }
+}
+
 #player_cell_1 {
   grid-row: 1 / 2;
   grid-column: 1 / 2;
@@ -275,16 +309,13 @@ $table-border: solid 1px $light-gray;
 
 #chart_container {
   position: relative;
-  margin: 50px 0;
-  height: 400px;
-}
-
-#chart_container {
+  margin-bottom: 50px;
+  height: 42s0px;
   max-width: 100%;
 }
 
 #player_chart {
-  background-color: #353535;
+  background-color: $chart-black;
   height: 400px;
   max-width: 100%;
 }
@@ -426,7 +457,6 @@ $table-border: solid 1px $light-gray;
   }
 
   #chart_container {
-    margin-top: 20px;
     margin-bottom: 0;
   }
 }

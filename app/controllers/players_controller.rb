@@ -1,4 +1,6 @@
 class PlayersController < ApplicationController
+  include ChartHelper
+
   def index
     @sort = params[:sort]
     @team = params[:team]
@@ -37,8 +39,10 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    change_histories = ChangeHistory.where(player_id: params[:id]).order(created_at: :desc)
+    change_histories = ChangeHistory.where(player_id: params[:id]).order(created_at: :asc)
     gon.player = @player
-    gon.chart_data = chart_data_from_change_histories(change_histories, @player.buy_price)
+    gon.data = chart_data(change_histories, @player.buy_price)
+    gon.options = chart_option
   end 
+
 end
